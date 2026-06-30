@@ -183,6 +183,13 @@
   .form-done p{font-family:var(--font-sans);font-weight:300;color:var(--fg-on-dark-2);margin:10px 0 0;font-size:14px;}
   form.lead.sent .field,form.lead.sent .consent,form.lead.sent .submit{display:none;}
   form.lead.sent .form-done{display:block;}
+  .form-error{grid-column:1 / -1;display:none;border:1px solid var(--maista-gold-soft);padding:18px 22px;}
+  form.lead.is-error .form-error{display:block;}
+  .form-error .t{font-family:var(--font-display);font-size:22px;color:var(--fg-on-dark-1);}
+  .form-error p{font-family:var(--font-sans);font-weight:300;color:var(--fg-on-dark-2);margin:8px 0 0;font-size:13.5px;}
+  .form-error a{color:var(--maista-gold-soft);text-decoration:underline;}
+  .hp{position:absolute !important;left:-9999px !important;top:auto;width:1px;height:1px;overflow:hidden;}
+  .submit[disabled]{opacity:.6;cursor:default;}
 
   /* ---------------- FOOTER ---------------- */
   .footer{background:var(--maista-forest);color:var(--fg-on-dark-2);padding:64px 0 40px;border-top:1px solid var(--rule-on-dark);}
@@ -457,11 +464,16 @@
             </select>
           </div>
           <div class="field full"><label for="msg">Message</label><textarea id="msg" name="msg" placeholder="Votre projet, vos questions…"></textarea></div>
-          <label class="consent"><input type="checkbox" required>J'accepte d'être recontacté(e) par l'équipe commerciale au sujet de la résidence MAISTÀ.</label>
+          <label class="consent"><input type="checkbox" name="consent" required>J'accepte d'être recontacté(e) par l'équipe commerciale au sujet de la résidence MAISTÀ.</label>
+          <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <button class="submit" type="submit">Envoyer ma demande <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
           <div class="form-done">
             <div class="t m-numeral">Merci.</div>
             <p>Votre demande a bien été enregistrée. L'équipe commerciale MAISTÀ vous recontactera dans les meilleurs délais.</p>
+          </div>
+          <div class="form-error" role="alert">
+            <div class="t">Oups.</div>
+            <p>L'envoi n'a pas pu aboutir. Réessayez, ou écrivez-nous directement à <a href="mailto:contact@aloe-immo.fr">contact@aloe-immo.fr</a>.</p>
           </div>
         </form>
       </div>
@@ -548,15 +560,42 @@
     }, 150);
   })();
 
-  // Form submit (demo — no backend)
+  // Form submit — envoie le lead vers le Google Apps Script (Sheet + email + CRM)
   (function(){
+    // 1) Colle ici l'URL de déploiement du Web App Apps Script (…/exec)
+    var LEAD_ENDPOINT = '__LEAD_ENDPOINT__';
+
     var f = document.getElementById('leadForm');
+    if (!f) return;
+    var btn = f.querySelector('.submit');
+
     f.addEventListener('submit', function(ev){
       ev.preventDefault();
+      f.classList.remove('is-error');
       if (!f.checkValidity()) { f.reportValidity(); return; }
-      f.classList.add('sent');
-      f.scrollIntoView({behavior:'smooth', block:'center'});
+
+      // Endpoint pas encore branché → on confirme visuellement sans casser l'UX.
+      if (LEAD_ENDPOINT.indexOf('http') !== 0){
+        console.warn('[MAISTÀ] LEAD_ENDPOINT non configuré — le lead n\'est PAS transmis. Voir apps-script/README.md');
+        done();
+        return;
+      }
+
+      var orig = btn.innerHTML;
+      btn.disabled = true; btn.textContent = 'Envoi…';
+      var body = new URLSearchParams(new FormData(f));
+      body.set('page', location.href);
+
+      fetch(LEAD_ENDPOINT, { method:'POST', body:body })
+        .then(function(r){ if (!r.ok) throw new Error('HTTP '+r.status); done(); })
+        .catch(function(){
+          btn.disabled = false; btn.innerHTML = orig;
+          f.classList.add('is-error');
+          f.scrollIntoView({behavior:'smooth', block:'center'});
+        });
     });
+
+    function done(){ f.classList.add('sent'); f.scrollIntoView({behavior:'smooth', block:'center'}); }
   })();
 
   // Icons
