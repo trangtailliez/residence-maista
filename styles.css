@@ -1,0 +1,186 @@
+/* =========================================================================
+   MAISTÀ — Tokens
+   Programme immobilier premium · Porticcio, Corse · 30 appartements
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ---------------------------------------------------------------------
+     COLOR — Brand
+     The logo lives on deep forest green with brushed-gold linework.
+     Architectural palette extends with corsican stone, sand-ocre walls,
+     red cedar wood, and Mediterranean blues read from the renders.
+     --------------------------------------------------------------------- */
+
+  /* Brand core */
+  --maista-forest:        #1F2E26;   /* logo background, primary dark */
+  --maista-forest-deep:   #16221C;   /* darker forest, hero overlays */
+  --maista-forest-soft:   #2A3C32;   /* card backgrounds on dark */
+  --maista-gold:          #C9A75E;   /* logo gold, accent rules, marks */
+  --maista-gold-soft:     #D9BE82;   /* hover / light gold */
+  --maista-gold-deep:     #9C7E3F;   /* press / engraved gold */
+
+  /* Architectural neutrals — read from the building renders */
+  --sand-100:             #FAF6EE;   /* paper, page bg */
+  --sand-200:             #F1E9D8;   /* warm card bg */
+  --sand-300:             #E4D6B8;   /* tonal blocks */
+  --ocre-400:             #C9A77C;   /* facade ocre naturel */
+  --stone-500:             #8B6F4E;   /* corsican stone — warm brown */
+  --stone-600:             #6B533A;   /* deep stone shadow */
+  --cedar-500:             #A26B3F;   /* red cedar claire-voie */
+
+  /* Landscape (used sparingly) */
+  --maquis-500:           #5C6E54;   /* maquis green */
+  --sea-500:              #5B8B95;   /* Mediterranean teal */
+  --sea-700:              #2F5A66;   /* deeper sea */
+
+  /* Greys / type */
+  --ink-900:              #111210;   /* near-black ink for body on cream */
+  --ink-700:              #2E2C26;   /* primary body */
+  --ink-500:              #6B675D;   /* secondary body */
+  --ink-300:              #B6B0A2;   /* tertiary / rules on cream */
+  --ink-100:              #E8E2D2;   /* hairlines on cream */
+  --paper:                #FAF6EE;   /* primary surface */
+
+  /* Semantic foregrounds */
+  --fg-1:                 var(--ink-900);
+  --fg-2:                 var(--ink-700);
+  --fg-3:                 var(--ink-500);
+  --fg-on-dark-1:         #F4EBD6;   /* warm cream on forest */
+  --fg-on-dark-2:         #C9C2B0;
+  --fg-on-dark-3:         #8A8675;
+
+  /* Surfaces */
+  --bg-paper:             var(--sand-100);
+  --bg-paper-warm:        var(--sand-200);
+  --bg-forest:            var(--maista-forest);
+  --bg-forest-deep:       var(--maista-forest-deep);
+
+  /* Lines / dividers */
+  --rule-hairline:        rgba(31, 46, 38, 0.18);
+  --rule-gold:            var(--maista-gold);
+  --rule-on-dark:         rgba(201, 167, 94, 0.45);
+
+  /* ---------------------------------------------------------------------
+     TYPE
+     Display: Cormorant Garamond — Trajan-style high-contrast serif
+              for the "MAISTÀ" wordmark, titles, numerals.
+     Body:    Jost — geometric sans, used at wide tracking in caps,
+              and normal tracking for paragraphs.
+     --------------------------------------------------------------------- */
+  --font-display: 'Cormorant Garamond', 'Cormorant', 'EB Garamond', Georgia, serif;
+  --font-sans:    'Jost', 'Futura', 'Avenir Next', system-ui, sans-serif;
+
+  /* Tracking — premium real estate convention is VERY wide on caps */
+  --track-display:   0.04em;
+  --track-eyebrow:   0.32em;   /* the spaced-out caps you see in the plaquette */
+  --track-caps:      0.18em;
+  --track-body:      0.01em;
+
+  /* Sizes — print-friendly, scale up for slides */
+  --fs-display-xl: clamp(64px, 8vw, 128px);   /* @kind font */
+  --fs-display-l:  clamp(48px, 5.5vw, 88px);  /* @kind font */
+  --fs-display-m:  clamp(36px, 4vw,  64px);   /* @kind font */
+  --fs-h1:         clamp(32px, 3.4vw, 52px);  /* @kind font */
+  --fs-h2:         clamp(24px, 2.4vw, 36px);  /* @kind font */
+  --fs-h3:         20px;
+  --fs-eyebrow:    12px;
+  --fs-eyebrow-l:  14px;
+  --fs-body:       16px;
+  --fs-body-l:     18px;
+  --fs-small:      13px;
+  --fs-micro:      11px;
+
+  /* ---------------------------------------------------------------------
+     SPACING — 4px base, generous on print/slides
+     --------------------------------------------------------------------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 20px;
+  --s-6: 24px; --s-7: 32px; --s-8: 40px; --s-9: 56px; --s-10: 72px;
+  --s-11: 96px; --s-12: 128px;
+
+  /* Radii — kept very small. The brand is architectural, not soft. */
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-card: 2px;   /* near-rectangular */
+
+  /* Elevation — used sparingly. Mostly hairlines + paper, not shadows. */
+  --shadow-soft:  0 1px 2px rgba(31, 46, 38, 0.06), 0 6px 24px rgba(31, 46, 38, 0.06);
+  --shadow-card:  0 1px 0 rgba(31, 46, 38, 0.04), 0 12px 40px rgba(31, 46, 38, 0.08);
+  --shadow-press: inset 0 1px 0 rgba(0,0,0,0.08);
+
+  /* Motion */
+  --ease-out:  cubic-bezier(0.22, 0.61, 0.36, 1);  /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);   /* @kind other */
+  --t-quick:   180ms;   /* @kind other */
+  --t-base:    280ms;   /* @kind other */
+  --t-slow:    520ms;   /* @kind other */
+}
+
+/* ===========================================================================
+   SEMANTIC TYPOGRAPHY
+   Use these classes on real markup; they encode the brand voice.
+   =========================================================================== */
+
+body {
+  background: var(--bg-paper);
+  color: var(--fg-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: var(--track-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Wordmark — the "MAISTÀ" treatment. Italic-ish elegance, wide tracking. */
+.m-wordmark {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  font-feature-settings: "lnum" 1;
+}
+
+/* Display titles — large editorial headlines */
+.m-display-xl { font-family: var(--font-display); font-weight: 400; font-size: var(--fs-display-xl); line-height: 1.02; letter-spacing: 0.01em; }
+.m-display-l  { font-family: var(--font-display); font-weight: 400; font-size: var(--fs-display-l);  line-height: 1.05; letter-spacing: 0.01em; }
+.m-display-m  { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-display-m);  line-height: 1.08; letter-spacing: 0.01em; }
+.m-display-italic { font-style: italic; font-weight: 400; }
+
+/* Section title (caps, gold-rule eyebrow above it is common) */
+.m-h1 { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h1); line-height: 1.12; letter-spacing: 0.01em; color: var(--fg-1); }
+.m-h2 { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h2); line-height: 1.18; letter-spacing: 0.01em; color: var(--fg-1); }
+.m-h3 { font-family: var(--font-sans);    font-weight: 500; font-size: var(--fs-h3); line-height: 1.3;  letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-1); }
+
+/* Eyebrow — the signature wide-tracked caps */
+.m-eyebrow   { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-eyebrow);   text-transform: uppercase; letter-spacing: var(--track-eyebrow); color: var(--fg-3); }
+.m-eyebrow-l { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-eyebrow-l); text-transform: uppercase; letter-spacing: var(--track-eyebrow); color: var(--fg-3); }
+.m-eyebrow-gold { color: var(--maista-gold); }
+
+/* Body */
+.m-lede  { font-family: var(--font-sans); font-weight: 300; font-size: var(--fs-body-l); line-height: 1.6; color: var(--fg-2); }
+.m-body  { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-body);   line-height: 1.55; color: var(--fg-2); }
+.m-small { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-small);  line-height: 1.4;  color: var(--fg-3); }
+.m-micro { font-family: var(--font-sans); font-weight: 500; font-size: var(--fs-micro);  line-height: 1.2; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+
+/* Numerals — used for prices, surfaces, lot counts */
+.m-numeral { font-family: var(--font-display); font-weight: 400; font-feature-settings: "lnum" 1, "tnum" 1; letter-spacing: -0.005em; }
+
+/* Hairline gold rule — the signature divider */
+.m-rule-gold {
+  border: 0;
+  border-top: 1px solid var(--maista-gold);
+  width: 56px;
+  margin: 0;
+}
+.m-rule-gold--wide { width: 120px; }
+.m-rule-hair { border: 0; border-top: 1px solid var(--rule-hairline); width: 100%; margin: 0; }
+
+/* Dark surface inverse */
+.m-on-dark { color: var(--fg-on-dark-1); }
+.m-on-dark .m-eyebrow, .m-on-dark.m-eyebrow { color: var(--maista-gold); }
+.m-on-dark .m-h1, .m-on-dark .m-h2, .m-on-dark .m-h3 { color: var(--fg-on-dark-1); }
+.m-on-dark .m-body, .m-on-dark .m-small { color: var(--fg-on-dark-2); }

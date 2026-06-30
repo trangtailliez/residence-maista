@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAISTÀ — Résidence contemporaine · Porticcio, Corse-du-Sud</title>
+<meta name="description" content="MAISTÀ — 30 appartements F2 à F4 entre mer et maquis, au cœur de Porticcio. Livraison 4ᵉ trimestre 2028.">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg-paper);overflow-x:hidden;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--maista-gold);color:var(--maista-forest);}
+
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 7vw;}
+  @media(min-width:1400px){.wrap{padding:0 64px;}}
+
+  /* ---------------- NAV ---------------- */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+       padding:22px 7vw;transition:background var(--t-base) var(--ease-out),padding var(--t-base) var(--ease-out),border-color var(--t-base) var(--ease-out);
+       border-bottom:1px solid transparent;}
+  @media(min-width:1400px){.nav{padding:22px 64px;}}
+  .nav__mark{font-family:var(--font-display);font-weight:500;font-size:24px;letter-spacing:0.12em;color:var(--fg-on-dark-1);
+             text-transform:uppercase;transition:color var(--t-base) var(--ease-out);}
+  .nav__links{display:flex;align-items:center;gap:26px;}
+  .nav__links a{font-family:var(--font-sans);font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;
+                color:var(--fg-on-dark-2);transition:color var(--t-quick) var(--ease-out);position:relative;}
+  .nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--maista-gold);
+                       transform:scaleX(0);transform-origin:left;transition:transform var(--t-base) var(--ease-out);}
+  .nav__links a:hover{color:var(--fg-on-dark-1);}
+  .nav__links a:hover::after{transform:scaleX(1);}
+  .nav__cta{font-family:var(--font-sans);font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;
+            border:1px solid var(--rule-on-dark);color:var(--fg-on-dark-1);padding:11px 20px;transition:all var(--t-base) var(--ease-out);}
+  .nav__cta:hover{background:var(--maista-gold);border-color:var(--maista-gold);color:var(--maista-forest);}
+  .nav__burger{display:none;background:none;border:0;color:var(--fg-on-dark-1);cursor:pointer;}
+
+  /* scrolled state */
+  .nav.is-solid{background:rgba(250,246,238,0.94);backdrop-filter:saturate(1.1) blur(2px);border-bottom-color:var(--rule-hairline);padding-top:16px;padding-bottom:16px;}
+  .nav.is-solid .nav__mark{color:var(--fg-1);}
+  .nav.is-solid .nav__links a{color:var(--fg-3);}
+  .nav.is-solid .nav__links a:hover{color:var(--fg-1);}
+  .nav.is-solid .nav__cta{border-color:var(--rule-hairline);color:var(--fg-1);}
+  .nav.is-solid .nav__cta:hover{background:var(--maista-forest);border-color:var(--maista-forest);color:var(--fg-on-dark-1);}
+  .nav.is-solid .nav__burger{color:var(--fg-1);}
+
+  /* ---------------- HERO ---------------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:var(--fg-on-dark-1);overflow:hidden;}
+  .hero__bg{position:absolute;inset:0;background:url('assets/residence_perspective.png') center 60%/cover no-repeat;transform:scale(1.06);}
+  .hero__veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,34,28,0.82) 2%,rgba(22,34,28,0.30) 42%,rgba(22,34,28,0.42) 100%);}
+  .hero__inner{position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 7vw 9vh;}
+  @media(min-width:1400px){.hero__inner{padding:0 64px 96px;}}
+  .hero__eyebrow{color:var(--maista-gold);}
+  .hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(52px,8.4vw,124px);line-height:0.98;
+           letter-spacing:0.005em;margin:18px 0 0;max-width:13ch;color:var(--fg-on-dark-1);}
+  .hero h1 em{font-style:italic;color:var(--maista-gold-soft);}
+  .hero__lede{max-width:46ch;margin:26px 0 0;color:var(--fg-on-dark-2);font-weight:300;font-size:clamp(16px,1.5vw,19px);line-height:1.6;}
+  .hero__meta{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border-top:1px solid var(--rule-on-dark);}
+  .hero__meta div{padding:18px 40px 0 0;}
+  .hero__meta .k{font-family:var(--font-display);font-size:28px;color:var(--fg-on-dark-1);font-weight:500;}
+  .hero__meta .l{font-family:var(--font-sans);font-size:10.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg-on-dark-3);margin-top:4px;}
+  .hero__scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;
+                font-family:var(--font-sans);font-size:9.5px;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-on-dark-3);}
+  .hero__scroll span{width:1px;height:40px;background:linear-gradient(var(--maista-gold),transparent);animation:scrollpulse 2.4s var(--ease-in-out) infinite;}
+  @keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(.6);}50%{opacity:1;transform:scaleY(1);}}
+
+  /* ---------------- SECTION SCAFFOLD ---------------- */
+  section{position:relative;}
+  .sec{padding:clamp(80px,11vh,150px) 0;}
+  .sec-head{max-width:62ch;}
+  .num{font-family:var(--font-display);font-style:italic;font-size:15px;color:var(--maista-gold);letter-spacing:0.04em;}
+  .lead-title{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.4vw,62px);line-height:1.04;letter-spacing:0.008em;color:var(--fg-1);margin:14px 0 0;}
+  .lead-title em{font-style:italic;}
+  hr.gold{border:0;border-top:1px solid var(--maista-gold);width:56px;margin:0 0 0;}
+
+  /* ---------------- PROJET ---------------- */
+  .projet{background:var(--bg-paper);}
+  .projet__grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(40px,6vw,96px);align-items:end;margin-top:48px;}
+  .projet__copy p{margin:0 0 18px;max-width:50ch;}
+  .projet__img{position:relative;}
+  .projet__img img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rule-hairline);}
+  .projet__cap{font-family:var(--font-sans);font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:var(--fg-3);margin-top:12px;}
+
+  .figs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(56px,7vw,90px);border-top:1px solid var(--rule-hairline);border-bottom:1px solid var(--rule-hairline);}
+  .figs > div{padding:34px 28px 34px 0;border-right:1px solid var(--rule-hairline);}
+  .figs > div:last-child{border-right:0;}
+  .figs .k{font-family:var(--font-display);font-size:clamp(40px,4vw,58px);font-weight:500;line-height:1;color:var(--fg-1);}
+  .figs .k small{font-size:0.5em;color:var(--maista-gold);font-weight:500;}
+  .figs .l{font-family:var(--font-sans);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-3);margin-top:12px;line-height:1.5;}
+
+  /* ---------------- SITUATION ---------------- */
+  .situation{background:var(--maista-forest);color:var(--fg-on-dark-1);}
+  .situation .lead-title{color:var(--fg-on-dark-1);}
+  .situation .num{color:var(--maista-gold);}
+  .sit__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px);align-items:center;margin-top:52px;}
+  .sit__copy p{color:var(--fg-on-dark-2);font-weight:300;margin:0 0 18px;max-width:48ch;}
+  .sit__media{position:relative;}
+  .sit__media img.aerial{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--rule-on-dark);}
+  .sit__media .mapcard{position:absolute;right:-14px;bottom:-30px;width:38%;max-width:210px;background:var(--bg-paper);padding:12px;border:1px solid var(--rule-hairline);box-shadow:var(--shadow-card);}
+  .sit__media .mapcard img{width:100%;}
+  .sit__media .mapcard .cap{font-family:var(--font-sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-3);margin-top:8px;text-align:center;}
+  .sit__list{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px;}
+  .sit__list span{font-family:var(--font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg-on-dark-1);
+                  display:flex;align-items:center;gap:9px;}
+  .sit__list i{width:15px;height:15px;color:var(--maista-gold);}
+
+  /* ---------------- TYPOLOGIES ---------------- */
+  .typo__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,32px);margin-top:52px;}
+  .tcard{background:var(--bg-paper-warm);border:1px solid var(--rule-hairline);border-top:2px solid var(--maista-gold);display:flex;flex-direction:column;transition:box-shadow var(--t-base) var(--ease-out),transform var(--t-base) var(--ease-out);}
+  .tcard:hover{box-shadow:var(--shadow-card);transform:translateY(-3px);}
+  .tcard__img{aspect-ratio:16/10;overflow:hidden;}
+  .tcard__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease-out);}
+  .tcard:hover .tcard__img img{transform:scale(1.05);}
+  .tcard__body{padding:26px 26px 30px;display:flex;flex-direction:column;flex:1;}
+  .tcard__top{display:flex;align-items:baseline;justify-content:space-between;}
+  .tcard__type{font-family:var(--font-display);font-size:54px;font-weight:500;line-height:1;color:var(--fg-1);}
+  .tcard__count{font-family:var(--font-sans);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--maista-gold);}
+  .tcard__specs{margin:20px 0 0;border-top:1px solid var(--rule-hairline);}
+  .tcard__specs div{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--rule-hairline);
+                    font-family:var(--font-sans);font-size:13px;color:var(--fg-2);}
+  .tcard__specs div span:first-child{color:var(--fg-3);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
+  .tcard__specs div span:last-child{font-family:var(--font-display);font-size:17px;color:var(--fg-1);}
+  .tcard__price{margin-top:auto;padding-top:22px;}
+  .tcard__price .lbl{font-family:var(--font-sans);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg-3);}
+  .tcard__price .val{font-family:var(--font-display);font-size:30px;font-weight:500;color:var(--maista-forest);margin-top:4px;}
+
+  /* ---------------- GALERIE ---------------- */
+  .gal{background:var(--bg-paper);}
+  .gal__grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(180px,auto);gap:14px;margin-top:48px;}
+  .gal__grid figure{margin:0;overflow:hidden;position:relative;border:1px solid var(--rule-hairline);}
+  .gal__grid img{width:100%;height:100%;object-fit:cover;transition:transform 2s var(--ease-out);}
+  .gal__grid figure:hover img{transform:scale(1.05);}
+  .gal__grid figure figcaption{position:absolute;left:0;bottom:0;font-family:var(--font-sans);font-size:9.5px;letter-spacing:0.22em;
+            text-transform:uppercase;color:var(--fg-on-dark-1);padding:8px 12px;background:linear-gradient(to top,rgba(22,34,28,.7),transparent);width:100%;}
+  .g-a{grid-column:span 4;grid-row:span 2;}
+  .g-b{grid-column:span 2;grid-row:span 1;}
+  .g-c{grid-column:span 2;grid-row:span 1;}
+  .g-d{grid-column:span 2;grid-row:span 1;}
+  .g-e{grid-column:span 2;grid-row:span 1;}
+  .g-f{grid-column:span 2;grid-row:span 1;}
+
+  /* ---------------- PRESTATIONS ---------------- */
+  .prest__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:52px;background:var(--rule-hairline);border:1px solid var(--rule-hairline);}
+  .pitem{background:var(--bg-paper);padding:32px 26px 34px;display:flex;flex-direction:column;gap:14px;min-height:170px;}
+  .pitem i{width:26px;height:26px;color:var(--maista-gold);stroke-width:1.25;}
+  .pitem h4{font-family:var(--font-sans);font-weight:500;font-size:13px;letter-spacing:0.06em;color:var(--fg-1);margin:4px 0 0;line-height:1.35;}
+  .pitem p{font-family:var(--font-sans);font-weight:300;font-size:12.5px;color:var(--fg-3);margin:0;line-height:1.5;}
+  .prest__note{font-family:var(--font-sans);font-size:11px;color:var(--fg-3);margin-top:22px;letter-spacing:0.02em;}
+
+  /* ---------------- CONTACT ---------------- */
+  .contact{background:var(--maista-forest-deep);color:var(--fg-on-dark-1);}
+  .contact__grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(40px,6vw,96px);margin-top:14px;align-items:start;}
+  .contact .num{color:var(--maista-gold);}
+  .contact .lead-title{color:var(--fg-on-dark-1);}
+  .contact__intro{color:var(--fg-on-dark-2);font-weight:300;margin:24px 0 0;max-width:40ch;}
+  .contact__logo{width:96px;margin-top:40px;border:1px solid var(--rule-on-dark);}
+  .contact__agences{margin-top:40px;display:flex;flex-direction:column;gap:18px;}
+  .contact__agences .ag{border-top:1px solid var(--rule-on-dark);padding-top:14px;}
+  .contact__agences .ag .n{font-family:var(--font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg-on-dark-1);}
+  .contact__agences .ag .d{font-family:var(--font-sans);font-size:12.5px;color:var(--fg-on-dark-3);font-weight:300;margin-top:4px;}
+
+  form.lead{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px;}
+  form.lead .full{grid-column:1 / -1;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field label{font-family:var(--font-sans);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--fg-on-dark-3);}
+  .field input,.field select,.field textarea{background:transparent;border:0;border-bottom:1px solid var(--rule-on-dark);
+       color:var(--fg-on-dark-1);font-family:var(--font-sans);font-size:15px;padding:9px 0;outline:none;transition:border-color var(--t-base) var(--ease-out);}
+  .field input::placeholder,.field textarea::placeholder{color:var(--fg-on-dark-3);}
+  .field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--maista-gold);}
+  .field select{appearance:none;background-image:none;}
+  .field select option{color:#222;}
+  .field textarea{resize:vertical;min-height:64px;}
+  .consent{grid-column:1 / -1;display:flex;align-items:flex-start;gap:11px;font-family:var(--font-sans);font-size:11.5px;color:var(--fg-on-dark-3);font-weight:300;line-height:1.5;}
+  .consent input{margin-top:2px;accent-color:var(--maista-gold);}
+  .submit{grid-column:1 / -1;justify-self:start;display:flex;align-items:center;gap:12px;background:var(--maista-gold);color:var(--maista-forest);
+          border:0;cursor:pointer;font-family:var(--font-sans);font-size:12px;letter-spacing:0.24em;text-transform:uppercase;padding:16px 30px;
+          transition:opacity var(--t-base) var(--ease-out);}
+  .submit:hover{opacity:.92;}
+  .form-done{grid-column:1 / -1;display:none;border:1px solid var(--maista-gold);padding:28px 30px;}
+  .form-done .t{font-family:var(--font-display);font-size:26px;color:var(--fg-on-dark-1);}
+  .form-done p{font-family:var(--font-sans);font-weight:300;color:var(--fg-on-dark-2);margin:10px 0 0;font-size:14px;}
+  form.lead.sent .field,form.lead.sent .consent,form.lead.sent .submit{display:none;}
+  form.lead.sent .form-done{display:block;}
+
+  /* ---------------- FOOTER ---------------- */
+  .footer{background:var(--maista-forest);color:var(--fg-on-dark-2);padding:64px 0 40px;border-top:1px solid var(--rule-on-dark);}
+  .footer__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;}
+  .footer__mark{font-family:var(--font-display);font-size:30px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-on-dark-1);}
+  .footer__tag{font-family:var(--font-sans);font-size:12px;font-weight:300;color:var(--fg-on-dark-3);margin-top:14px;max-width:34ch;line-height:1.6;}
+  .footer h5{font-family:var(--font-sans);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--maista-gold);margin:0 0 16px;}
+  .footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
+  .footer ul li{font-family:var(--font-sans);font-size:12.5px;font-weight:300;color:var(--fg-on-dark-2);}
+  .footer__bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:54px;padding-top:22px;border-top:1px solid var(--rule-on-dark);
+                  font-family:var(--font-sans);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-on-dark-3);}
+
+  /* ---------------- REVEAL ---------------- */
+  [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out);}
+  [data-reveal].is-in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    [data-reveal]{opacity:1;transform:none;transition:none;}
+    .hero__bg{transform:none;}
+    .hero__scroll span{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------------- RESPONSIVE ---------------- */
+  @media(max-width:1040px){
+    .nav__links{display:none;}
+    .nav__cta{display:none;}
+    .nav__burger{display:block;}
+    .projet__grid,.sit__grid,.contact__grid{grid-template-columns:1fr;}
+    .figs{grid-template-columns:1fr 1fr;}
+    .figs > div:nth-child(2){border-right:0;}
+    .typo__grid{grid-template-columns:1fr;}
+    .prest__grid{grid-template-columns:1fr 1fr;}
+    .footer__top{grid-template-columns:1fr;gap:34px;}
+    .gal__grid{grid-template-columns:repeat(2,1fr);}
+    .g-a{grid-column:span 2;grid-row:span 2;}
+    .g-b,.g-c,.g-d,.g-e,.g-f{grid-column:span 1;}
+    form.lead{grid-template-columns:1fr;}
+    .sit__media .mapcard{position:static;width:60%;margin:18px auto 0;}
+  }
+  @media(max-width:560px){
+    .figs{grid-template-columns:1fr;}
+    .figs > div{border-right:0;}
+    .prest__grid{grid-template-columns:1fr;}
+    .hero__meta div{padding-right:28px;}
+  }
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#1F2E26"/>
+    <g fill="none" stroke="#C9A75E" stroke-width="1.6">
+      <path d="M50 30 L66 39 L66 57 L50 66 L34 57 L34 39 Z"/>
+      <path d="M44 57 L44 47 a6 6 0 0 1 12 0 L56 57"/>
+      <path d="M38 44 L50 36 L62 44"/>
+    </g>
+    <text x="50" y="80" text-anchor="middle" fill="#C9A75E" font-family="Georgia, serif" font-size="11" letter-spacing="2">MAISTÀ</text>
+  </svg>
+</template>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav__mark">MAISTÀ</a>
+  <div class="nav__links">
+    <a href="#projet">Le projet</a>
+    <a href="#situation">Situation</a>
+    <a href="#typologies">Typologies</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#prestations">Prestations</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav__cta">Demander une information</a>
+  <button class="nav__burger" aria-label="Aller au contact" onclick="document.getElementById('contact').scrollIntoView()"><i data-lucide="menu"></i></button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero__bg"></div>
+  <div class="hero__veil"></div>
+  <div class="hero__inner">
+    <div class="m-eyebrow hero__eyebrow" data-reveal>Porticcio · Corse-du-Sud</div>
+    <h1 data-reveal>Entre mer<br>et <em>maquis</em></h1>
+    <p class="hero__lede" data-reveal style="transition-delay:.1s">Une résidence contemporaine de standing à taille humaine, au cœur de Porticcio. 30&nbsp;appartements lumineux, prolongés par de généreuses terrasses ouvertes sur le golfe d'Ajaccio.</p>
+    <div class="hero__meta" data-reveal style="transition-delay:.2s">
+      <div><div class="k m-numeral">30</div><div class="l">Appartements</div></div>
+      <div><div class="k m-numeral">F2 → F4</div><div class="l">Typologies</div></div>
+      <div><div class="k m-numeral">3</div><div class="l">Bâtiments · R+2</div></div>
+      <div><div class="k m-numeral">T4 2028</div><div class="l">Livraison</div></div>
+    </div>
+  </div>
+  <div class="hero__scroll">Découvrir<span></span></div>
+</header>
+
+<!-- ============ LE PROJET ============ -->
+<section class="sec projet" id="projet">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="num">01 — Présentation</div>
+      <h2 class="lead-title">Une architecture <em>intégrée</em>,<br>pensée pour la lumière</h2>
+      <hr class="gold" style="margin-top:28px">
+    </div>
+    <div class="projet__grid">
+      <div class="projet__copy" data-reveal>
+        <p>MAISTÀ s'inscrit dans le lotissement Scaglione, sur une unité foncière de 4&nbsp;240&nbsp;m² entre mer et maquis. Trois bâtiments à taille humaine, en R+2, s'implantent dans la topographie du terrain pour épouser le relief et préserver les vues.</p>
+        <p>Les façades de teinte ocre naturel, ponctuées de parement de pierre traditionnelle corse et de claire-voie en Red Cedar, dialoguent avec le paysage environnant. Les toitures-terrasses, équipées de panneaux photovoltaïques sur toute leur surface, limitent l'impact paysager et inscrivent la résidence dans une démarche qualitative et durable.</p>
+        <p>Conçus selon un cahier des charges architectural strict, les espaces de vie confortables et lumineux sont prolongés par de généreuses terrasses — clé en main, à la hauteur du lieu.</p>
+      </div>
+      <div class="projet__img" data-reveal style="transition-delay:.1s">
+        <img src="assets/three_buildings.png" alt="Les trois bâtiments de la résidence MAISTÀ">
+        <div class="projet__cap">Perspective d'ensemble — 3 bâtiments, R+2</div>
+      </div>
+    </div>
+
+    <div class="figs" data-reveal>
+      <div><div class="k m-numeral">30</div><div class="l">Appartements<br>F2 · F3 · F4</div></div>
+      <div><div class="k m-numeral">2 050<small> m²</small></div><div class="l">Surface de<br>plancher</div></div>
+      <div><div class="k m-numeral">RE<small>2020</small></div><div class="l">Performance<br>énergétique</div></div>
+      <div><div class="k m-numeral">46</div><div class="l">Box garage<br>+ 48 places aériennes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SITUATION ============ -->
+<section class="sec situation" id="situation">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="num">02 — Situation</div>
+      <h2 class="lead-title">Au cœur de <em>Porticcio</em></h2>
+      <hr class="gold" style="margin-top:28px">
+    </div>
+    <div class="sit__grid">
+      <div class="sit__copy" data-reveal>
+        <p>Porticcio s'étire le long du golfe d'Ajaccio, face à la cité impériale et à ses montagnes. Plages de sable fin, eaux turquoise et commerces de proximité composent un cadre de vie privilégié, paisible et naturel, à quelques minutes seulement de l'aéroport d'Ajaccio.</p>
+        <p>La résidence bénéficie d'un environnement exceptionnel, entre rivage méditerranéen et collines de maquis — un équilibre rare entre animation balnéaire et quiétude résidentielle.</p>
+        <div class="sit__list">
+          <span><i data-lucide="waves"></i>Plages à proximité</span>
+          <span><i data-lucide="plane"></i>Aéroport d'Ajaccio</span>
+          <span><i data-lucide="trees"></i>Collines de maquis</span>
+          <span><i data-lucide="store"></i>Commerces</span>
+        </div>
+      </div>
+      <div class="sit__media" data-reveal style="transition-delay:.1s">
+        <img class="aerial" src="assets/aerial_porticcio.png" alt="Vue aérienne de la plage de Porticcio">
+        <div class="mapcard">
+          <img src="assets/map_corse.png" alt="Localisation de Porticcio en Corse-du-Sud">
+          <div class="cap">Porticcio · Corse-du-Sud</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPOLOGIES ============ -->
+<section class="sec typologies" id="typologies">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="num">03 — Typologies</div>
+      <h2 class="lead-title">Du <em>F2</em> au <em>F4</em>,<br>chacun sa terrasse</h2>
+      <hr class="gold" style="margin-top:28px">
+    </div>
+    <div class="typo__grid">
+      <article class="tcard" data-reveal>
+        <div class="tcard__img"><img src="assets/interior_3d_f2.png" alt="Rendu 3D d'un appartement F2"></div>
+        <div class="tcard__body">
+          <div class="tcard__top"><div class="tcard__type m-numeral">F2</div><div class="tcard__count">12 appartements</div></div>
+          <div class="tcard__specs">
+            <div><span>Habitable</span><span class="m-numeral">43 m²</span></div>
+            <div><span>Terrasse</span><span class="m-numeral">17 m²</span></div>
+            <div><span>Stationnement</span><span class="m-numeral">1 place</span></div>
+          </div>
+          <div class="tcard__price"><div class="lbl">À partir de</div><div class="val m-numeral">289 000 €</div></div>
+        </div>
+      </article>
+      <article class="tcard" data-reveal style="transition-delay:.1s">
+        <div class="tcard__img"><img src="assets/interior_3d_f3.png" alt="Rendu 3D d'un appartement F3"></div>
+        <div class="tcard__body">
+          <div class="tcard__top"><div class="tcard__type m-numeral">F3</div><div class="tcard__count">12 appartements</div></div>
+          <div class="tcard__specs">
+            <div><span>Habitable</span><span class="m-numeral">67 m²</span></div>
+            <div><span>Terrasse</span><span class="m-numeral">30 m²</span></div>
+            <div><span>Stationnement</span><span class="m-numeral">1 place</span></div>
+          </div>
+          <div class="tcard__price"><div class="lbl">À partir de</div><div class="val m-numeral">440 000 €</div></div>
+        </div>
+      </article>
+      <article class="tcard" data-reveal style="transition-delay:.2s">
+        <div class="tcard__img"><img src="assets/interior_3d_f4.png" alt="Rendu 3D d'un appartement F4"></div>
+        <div class="tcard__body">
+          <div class="tcard__top"><div class="tcard__type m-numeral">F4</div><div class="tcard__count">6 appartements</div></div>
+          <div class="tcard__specs">
+            <div><span>Habitable</span><span class="m-numeral">107 m²</span></div>
+            <div><span>Terrasse</span><span class="m-numeral">48 m²</span></div>
+            <div><span>Stationnement</span><span class="m-numeral">2 + garage</span></div>
+          </div>
+          <div class="tcard__price"><div class="lbl">À partir de</div><div class="val m-numeral">820 000 €</div></div>
+        </div>
+      </article>
+    </div>
+    <p class="prest__note" data-reveal>Derniers étages réservés aux F4 — vues mer et mer&nbsp;++. Plans détaillés et disponibilités communiqués sur demande.</p>
+  </div>
+</section>
+
+<!-- ============ GALERIE ============ -->
+<section class="sec gal" id="galerie">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="num">04 — Galerie</div>
+      <h2 class="lead-title">Rendus de la <em>résidence</em></h2>
+      <hr class="gold" style="margin-top:28px">
+    </div>
+    <div class="gal__grid">
+      <figure class="g-a" data-reveal><img src="assets/residence_perspective.png" alt="Perspective de la résidence à la lumière de fin d'après-midi"><figcaption>Perspective — lumière de fin d'après-midi</figcaption></figure>
+      <figure class="g-b" data-reveal style="transition-delay:.05s"><img src="assets/hero_facade.png" alt="Façade principale de la résidence"><figcaption>Façade principale</figcaption></figure>
+      <figure class="g-c" data-reveal style="transition-delay:.1s"><img src="assets/interior_3d_terrasse.png" alt="Terrasse et séjour"><figcaption>Séjour & terrasse</figcaption></figure>
+      <figure class="g-d" data-reveal style="transition-delay:.05s"><img src="assets/interior_3d_f3.png" alt="Intérieur F3"><figcaption>Intérieur F3</figcaption></figure>
+      <figure class="g-e" data-reveal style="transition-delay:.1s"><img src="assets/interior_3d_f4.png" alt="Intérieur F4"><figcaption>Intérieur F4</figcaption></figure>
+      <figure class="g-f" data-reveal style="transition-delay:.15s"><img src="assets/three_buildings.png" alt="Vue d'ensemble des trois bâtiments"><figcaption>Vue d'ensemble</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRESTATIONS ============ -->
+<section class="sec prest" id="prestations">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="num">05 — Prestations</div>
+      <h2 class="lead-title">Un cahier des charges <em>qualitatif</em></h2>
+      <hr class="gold" style="margin-top:28px">
+    </div>
+    <div class="prest__grid">
+      <div class="pitem" data-reveal><i data-lucide="thermometer-sun"></i><h4>Climatisation gainable</h4><p>Réversible Daikin, diffusion par gaines dans chaque pièce.</p></div>
+      <div class="pitem" data-reveal style="transition-delay:.05s"><i data-lucide="square-dashed"></i><h4>Menuiseries aluminium</h4><p>Double vitrage, conformes RE2020. Garde-corps en verre.</p></div>
+      <div class="pitem" data-reveal style="transition-delay:.1s"><i data-lucide="blinds"></i><h4>Volets roulants</h4><p>Électriques et radiocommandés sur l'ensemble des ouvertures.</p></div>
+      <div class="pitem" data-reveal style="transition-delay:.15s"><i data-lucide="chef-hat"></i><h4>Cuisine équipée</h4><p>Mobilier Miton / Binova, four, plaque, hotte, lave-vaisselle, combiné.</p></div>
+      <div class="pitem" data-reveal><i data-lucide="sun"></i><h4>Photovoltaïque</h4><p>Toitures-terrasses couvertes de panneaux solaires.</p></div>
+      <div class="pitem" data-reveal style="transition-delay:.05s"><i data-lucide="wifi"></i><h4>Fibre optique</h4><p>Réseau déployé dans toute la résidence, accès individuel.</p></div>
+      <div class="pitem" data-reveal style="transition-delay:.1s"><i data-lucide="square-parking"></i><h4>Stationnement</h4><p>46 box garage en sous-sol, 48 places aériennes, bornes VE.</p></div>
+      <div class="pitem" data-reveal style="transition-delay:.15s"><i data-lucide="layers"></i><h4>Matériaux nobles</h4><p>Pierre naturelle corse, claire-voie Red Cedar, carrelage 60×120.</p></div>
+    </div>
+    <p class="prest__note" data-reveal>Extrait de la notice descriptive. Prestations susceptibles d'adaptations en cours de chantier afin d'améliorer les performances énergétiques réglementaires.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="contact__grid">
+      <div data-reveal>
+        <div class="num">06 — Contact</div>
+        <h2 class="lead-title">Recevoir une<br><em>information</em></h2>
+        <p class="contact__intro">Plaquette commerciale, grille de prix détaillée et disponibilités vous sont adressées sur simple demande.</p>
+        <img class="contact__logo" src="assets/logo_maista.png" alt="Logo MAISTÀ">
+        <div class="contact__agences">
+          <div class="ag"><div class="n">Agosta Immobilier</div><div class="d">Porticcio</div></div>
+          <div class="ag"><div class="n">ORPI — Agence du Golfe</div><div class="d">Porticcio</div></div>
+          <div class="ag"><div class="n">Bastelicaccia Immobilier</div><div class="d">Bastelicaccia</div></div>
+        </div>
+      </div>
+      <div data-reveal style="transition-delay:.1s">
+        <form class="lead" id="leadForm" novalidate>
+          <div class="field"><label for="prenom">Prénom</label><input id="prenom" name="prenom" type="text" placeholder="Votre prénom" required></div>
+          <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" placeholder="Votre nom" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="vous@email.fr" required></div>
+          <div class="field"><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" placeholder="06 00 00 00 00"></div>
+          <div class="field full"><label for="typo">Typologie souhaitée</label>
+            <select id="typo" name="typo">
+              <option value="">Indifférent</option>
+              <option>F2 — 43 m²</option>
+              <option>F3 — 67 m²</option>
+              <option>F4 — 107 m²</option>
+            </select>
+          </div>
+          <div class="field full"><label for="msg">Message</label><textarea id="msg" name="msg" placeholder="Votre projet, vos questions…"></textarea></div>
+          <label class="consent"><input type="checkbox" required>J'accepte d'être recontacté(e) par l'équipe commerciale au sujet de la résidence MAISTÀ.</label>
+          <button class="submit" type="submit">Envoyer ma demande <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
+          <div class="form-done">
+            <div class="t m-numeral">Merci.</div>
+            <p>Votre demande a bien été enregistrée. L'équipe commerciale MAISTÀ vous recontactera dans les meilleurs délais.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <div class="footer__mark">MAISTÀ</div>
+        <div class="footer__tag">Résidence contemporaine de standing — 30 appartements entre mer et maquis, au cœur de Porticcio, Corse-du-Sud. Livraison 4ᵉ trimestre 2028.</div>
+      </div>
+      <div>
+        <h5>Le projet</h5>
+        <ul>
+          <li><a href="#projet">Présentation</a></li>
+          <li><a href="#typologies">Typologies & prix</a></li>
+          <li><a href="#prestations">Prestations</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Intervenants</h5>
+        <ul>
+          <li>Architecte — Benjamin Xuereb</li>
+          <li>Maître d'œuvre — A Maistà</li>
+          <li>Constructeur — BATIFM</li>
+          <li>Notaire — Me Renucci Savelli</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div>© 2026 Résidence MAISTÀ — Porticcio</div>
+      <div>Document non contractuel · Illustrations à caractère d'ambiance</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav state
+  (function(){
+    var nav = document.getElementById('nav');
+    var onScroll = function(){
+      if (window.scrollY > window.innerHeight * 0.82) nav.classList.add('is-solid');
+      else nav.classList.remove('is-solid');
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+
+  // Scroll reveals — animate in real browsers, snap instantly where CSS clocks are frozen (embedded previews)
+  (function(){
+    var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    var ready = false, instant = false;
+    function reveal(el){ if (instant) el.style.transition = 'none'; el.classList.add('is-in'); }
+    function check(){
+      if (!ready) return;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      for (var i = els.length - 1; i >= 0; i--){
+        if (els[i].getBoundingClientRect().top < vh * 0.88){ reveal(els[i]); els.splice(i,1); }
+      }
+    }
+    window.addEventListener('scroll', check, {passive:true});
+    window.addEventListener('resize', check);
+    // probe: does a CSS transition actually advance here?
+    var t = document.createElement('div');
+    t.style.cssText = 'position:fixed;left:-9999px;top:0;width:2px;height:2px;opacity:0;transition:opacity .2s linear;';
+    document.body.appendChild(t);
+    t.getBoundingClientRect();
+    t.style.opacity = '1';
+    setTimeout(function(){
+      if (parseFloat(getComputedStyle(t).opacity) === 0) instant = true; // frozen clock → no animation possible
+      t.parentNode && t.parentNode.removeChild(t);
+      ready = true;
+      if (instant){ // static/embedded context: no scroll animation possible — show everything
+        els.forEach(function(e){ e.style.transition = 'none'; e.classList.add('is-in'); });
+        els.length = 0;
+      } else {
+        check();
+      }
+    }, 150);
+  })();
+
+  // Form submit (demo — no backend)
+  (function(){
+    var f = document.getElementById('leadForm');
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      f.classList.add('sent');
+      f.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  })();
+
+  // Icons
+  if (window.lucide) lucide.createIcons({attrs:{'stroke-width':1.25}});
+</script>
+</body>
+</html>
