@@ -5,8 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MAISTÀ — Résidence contemporaine · Porticcio, Corse-du-Sud</title>
 <meta name="description" content="MAISTÀ — 30 appartements F2 à F4 entre mer et maquis, au cœur de Porticcio. Livraison 4ᵉ trimestre 2028.">
+<link rel="canonical" href="https://designhandoffmaistasite.vercel.app/">
+
+<!-- Favicon -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/logo_maista.png">
+<meta name="theme-color" content="#1F2E26">
+
+<!-- Open Graph / partage social -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Résidence MAISTÀ">
+<meta property="og:title" content="MAISTÀ — Résidence contemporaine · Porticcio, Corse-du-Sud">
+<meta property="og:description" content="30 appartements F2 à F4 entre mer et maquis, au cœur de Porticcio. Livraison 4ᵉ trimestre 2028.">
+<meta property="og:url" content="https://designhandoffmaistasite.vercel.app/">
+<meta property="og:image" content="https://designhandoffmaistasite.vercel.app/assets/ext_golden.jpg">
+<meta property="og:image:width" content="2200">
+<meta property="og:image:height" content="1238">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MAISTÀ — Résidence contemporaine · Porticcio, Corse-du-Sud">
+<meta name="twitter:description" content="30 appartements F2 à F4 entre mer et maquis, au cœur de Porticcio. Livraison 4ᵉ trimestre 2028.">
+<meta name="twitter:image" content="https://designhandoffmaistasite.vercel.app/assets/ext_golden.jpg">
+
+<!-- Polices : preconnect + preload du visuel hero (LCP) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/ext_golden.jpg" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="styles.css">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script defer src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <style>
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -14,6 +41,8 @@
   img{display:block;max-width:100%;}
   a{color:inherit;text-decoration:none;}
   ::selection{background:var(--maista-gold);color:var(--maista-forest);}
+  :focus-visible{outline:2px solid var(--maista-gold);outline-offset:3px;}
+  .fab{display:none;}
 
   .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 7vw;}
   @media(min-width:1400px){.wrap{padding:0 64px;}}
@@ -35,7 +64,8 @@
   .nav__cta{font-family:var(--font-sans);font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;
             border:1px solid var(--rule-on-dark);color:var(--fg-on-dark-1);padding:11px 20px;transition:all var(--t-base) var(--ease-out);}
   .nav__cta:hover{background:var(--maista-gold);border-color:var(--maista-gold);color:var(--maista-forest);}
-  .nav__burger{display:none;background:none;border:0;color:var(--fg-on-dark-1);cursor:pointer;}
+  .nav__burger{display:none;background:none;border:0;color:var(--fg-on-dark-1);cursor:pointer;padding:4px;}
+  .nav__links-cta{display:none;}
 
   /* scrolled state */
   .nav.is-solid{background:rgba(250,246,238,0.94);backdrop-filter:saturate(1.1) blur(2px);border-bottom-color:var(--rule-hairline);padding-top:16px;padding-bottom:16px;}
@@ -155,6 +185,10 @@
   .contact .num{color:var(--maista-gold);}
   .contact .lead-title{color:var(--fg-on-dark-1);}
   .contact__intro{color:var(--fg-on-dark-2);font-weight:300;margin:24px 0 0;max-width:40ch;}
+  .contact__mail{display:inline-flex;align-items:center;gap:10px;margin-top:22px;color:var(--maista-gold-soft);
+                 font-family:var(--font-sans);font-size:15px;letter-spacing:0.02em;border-bottom:1px solid transparent;transition:border-color var(--t-base) var(--ease-out);}
+  .contact__mail:hover{border-bottom-color:var(--maista-gold-soft);}
+  .contact__mail i{width:17px;height:17px;color:var(--maista-gold);}
   .contact__logo{width:96px;margin-top:40px;border:1px solid var(--rule-on-dark);}
   .contact__agences{margin-top:40px;display:flex;flex-direction:column;gap:18px;}
   .contact__agences .ag{border-top:1px solid var(--rule-on-dark);padding-top:14px;}
@@ -169,6 +203,7 @@
        color:var(--fg-on-dark-1);font-family:var(--font-sans);font-size:15px;padding:9px 0;outline:none;transition:border-color var(--t-base) var(--ease-out);}
   .field input::placeholder,.field textarea::placeholder{color:var(--fg-on-dark-3);}
   .field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--maista-gold);}
+  .field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none;box-shadow:0 1px 0 0 var(--maista-gold);}
   .field select{appearance:none;background-image:none;}
   .field select option{color:#222;}
   .field textarea{resize:vertical;min-height:64px;}
@@ -214,9 +249,30 @@
 
   /* ---------------- RESPONSIVE ---------------- */
   @media(max-width:1040px){
-    .nav__links{display:none;}
     .nav__cta{display:none;}
     .nav__burger{display:block;}
+    /* barre solide dès qu'on est sur mobile (lisibilité du burger) ou menu ouvert */
+    .nav{background:rgba(250,246,238,0.94);backdrop-filter:saturate(1.1) blur(2px);border-bottom-color:var(--rule-hairline);}
+    .nav .nav__mark{color:var(--fg-1);}
+    .nav .nav__burger{color:var(--fg-1);}
+    /* panneau déroulant */
+    .nav__links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+                background:var(--bg-paper);border-bottom:1px solid var(--rule-hairline);
+                padding:8px 7vw 18px;box-shadow:var(--shadow-card);
+                max-height:0;overflow:hidden;opacity:0;visibility:hidden;
+                transition:max-height var(--t-base) var(--ease-out),opacity var(--t-base) var(--ease-out),visibility var(--t-base);}
+    .nav.is-open .nav__links{max-height:80vh;opacity:1;visibility:visible;}
+    .nav__links a{color:var(--fg-2);padding:15px 2px;font-size:12.5px;border-bottom:1px solid var(--rule-hairline);}
+    .nav__links a::after{display:none;}
+    .nav__links a:hover{color:var(--fg-1);}
+    .nav__links-cta{display:block;margin-top:16px;border:0;background:var(--maista-gold);color:var(--maista-forest)!important;
+                    text-align:center;padding:16px!important;letter-spacing:0.22em;}
+    .fab{display:flex;align-items:center;justify-content:center;gap:9px;position:fixed;left:16px;right:16px;bottom:16px;z-index:45;
+         background:var(--maista-gold);color:var(--maista-forest);font-family:var(--font-sans);font-size:12px;
+         letter-spacing:0.22em;text-transform:uppercase;padding:15px;box-shadow:var(--shadow-card);
+         transition:opacity var(--t-base) var(--ease-out),transform var(--t-base) var(--ease-out);}
+    .fab i{width:16px;height:16px;}
+    .fab.is-hidden{opacity:0;transform:translateY(140%);pointer-events:none;}
     .projet__grid,.sit__grid,.contact__grid{grid-template-columns:1fr;}
     .figs{grid-template-columns:1fr 1fr;}
     .figs > div:nth-child(2){border-right:0;}
@@ -239,32 +295,23 @@
 </head>
 <body>
 
-<template id="__bundler_thumbnail">
-  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100" height="100" fill="#1F2E26"/>
-    <g fill="none" stroke="#C9A75E" stroke-width="1.6">
-      <path d="M50 30 L66 39 L66 57 L50 66 L34 57 L34 39 Z"/>
-      <path d="M44 57 L44 47 a6 6 0 0 1 12 0 L56 57"/>
-      <path d="M38 44 L50 36 L62 44"/>
-    </g>
-    <text x="50" y="80" text-anchor="middle" fill="#C9A75E" font-family="Georgia, serif" font-size="11" letter-spacing="2">MAISTÀ</text>
-  </svg>
-</template>
-
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
   <a href="#top" class="nav__mark">MAISTÀ</a>
-  <div class="nav__links">
+  <div class="nav__links" id="navLinks">
     <a href="#projet">Le projet</a>
     <a href="#situation">Situation</a>
     <a href="#typologies">Typologies</a>
     <a href="#galerie">Galerie</a>
     <a href="#prestations">Prestations</a>
     <a href="#contact">Contact</a>
+    <a href="#contact" class="nav__links-cta">Demander une information</a>
   </div>
   <a href="#contact" class="nav__cta">Demander une information</a>
-  <button class="nav__burger" aria-label="Aller au contact" onclick="document.getElementById('contact').scrollIntoView()"><i data-lucide="menu"></i></button>
+  <button class="nav__burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks"><i data-lucide="menu"></i></button>
 </nav>
+
+<a href="#contact" class="fab" id="fab">Demander une information <i data-lucide="arrow-right"></i></a>
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
@@ -299,7 +346,7 @@
         <p>Conçus selon un cahier des charges architectural strict, les espaces de vie confortables et lumineux sont prolongés par de généreuses terrasses — clé en main, à la hauteur du lieu.</p>
       </div>
       <div class="projet__img" data-reveal style="transition-delay:.1s">
-        <img src="assets/ext_day.jpg" alt="Les trois bâtiments de la résidence MAISTÀ">
+        <img loading="lazy" decoding="async" src="assets/ext_day.jpg" alt="Les trois bâtiments de la résidence MAISTÀ">
         <div class="projet__cap">Perspective d'ensemble — 3 bâtiments, R+2</div>
       </div>
     </div>
@@ -333,9 +380,9 @@
         </div>
       </div>
       <div class="sit__media" data-reveal style="transition-delay:.1s">
-        <img class="aerial" src="assets/aerial_porticcio.png" alt="Vue aérienne de la plage de Porticcio">
+        <img loading="lazy" decoding="async" class="aerial" src="assets/aerial_porticcio.jpg" alt="Vue aérienne de la plage de Porticcio">
         <div class="mapcard">
-          <img src="assets/map_corse.png" alt="Localisation de Porticcio en Corse-du-Sud">
+          <img loading="lazy" decoding="async" src="assets/map_corse.png" alt="Localisation de Porticcio en Corse-du-Sud">
           <div class="cap">Porticcio · Corse-du-Sud</div>
         </div>
       </div>
@@ -353,7 +400,7 @@
     </div>
     <div class="typo__grid">
       <article class="tcard" data-reveal>
-        <div class="tcard__img"><img src="assets/plan_f2.jpg" alt="Plan 3D d'un appartement F2"></div>
+        <div class="tcard__img"><img loading="lazy" decoding="async" src="assets/plan_f2.jpg" alt="Plan 3D d'un appartement F2"></div>
         <div class="tcard__body">
           <div class="tcard__top"><div class="tcard__type m-numeral">F2</div><div class="tcard__count">12 appartements</div></div>
           <div class="tcard__specs">
@@ -365,7 +412,7 @@
         </div>
       </article>
       <article class="tcard" data-reveal style="transition-delay:.1s">
-        <div class="tcard__img"><img src="assets/plan_f3.jpg" alt="Plan 3D d'un appartement F3"></div>
+        <div class="tcard__img"><img loading="lazy" decoding="async" src="assets/plan_f3.jpg" alt="Plan 3D d'un appartement F3"></div>
         <div class="tcard__body">
           <div class="tcard__top"><div class="tcard__type m-numeral">F3</div><div class="tcard__count">12 appartements</div></div>
           <div class="tcard__specs">
@@ -377,7 +424,7 @@
         </div>
       </article>
       <article class="tcard" data-reveal style="transition-delay:.2s">
-        <div class="tcard__img"><img src="assets/plan_f4.jpg" alt="Plan 3D d'un appartement F4"></div>
+        <div class="tcard__img"><img loading="lazy" decoding="async" src="assets/plan_f4.jpg" alt="Plan 3D d'un appartement F4"></div>
         <div class="tcard__body">
           <div class="tcard__top"><div class="tcard__type m-numeral">F4</div><div class="tcard__count">6 appartements</div></div>
           <div class="tcard__specs">
@@ -402,12 +449,12 @@
       <hr class="gold" style="margin-top:28px">
     </div>
     <div class="gal__grid">
-      <figure class="g-a" data-reveal><img src="assets/ext_golden.jpg" alt="Perspective de la résidence à la lumière de fin d'après-midi"><figcaption>Perspective — lumière de fin d'après-midi</figcaption></figure>
-      <figure class="g-b" data-reveal style="transition-delay:.05s"><img src="assets/ext_day.jpg" alt="Vue d'ensemble des trois bâtiments"><figcaption>Vue d'ensemble — 3 bâtiments</figcaption></figure>
-      <figure class="g-c" data-reveal style="transition-delay:.1s"><img src="assets/ext_terrasses.jpg" alt="Terrasses et claire-voie en Red Cedar"><figcaption>Terrasses & claire-voie</figcaption></figure>
-      <figure class="g-d" data-reveal style="transition-delay:.05s"><img src="assets/ext_dusk.jpg" alt="Perspective de la résidence au crépuscule"><figcaption>Perspective au crépuscule</figcaption></figure>
-      <figure class="g-e" data-reveal style="transition-delay:.1s"><img src="assets/int_f4_a.jpg" alt="Agencement intérieur d'un appartement"><figcaption>Agencement intérieur</figcaption></figure>
-      <figure class="g-f" data-reveal style="transition-delay:.15s"><img src="assets/int_f4_b.jpg" alt="Séjour et terrasse d'un appartement"><figcaption>Séjour & terrasse</figcaption></figure>
+      <figure class="g-a" data-reveal><img loading="lazy" decoding="async" src="assets/ext_golden.jpg" alt="Perspective de la résidence à la lumière de fin d'après-midi"><figcaption>Perspective — lumière de fin d'après-midi</figcaption></figure>
+      <figure class="g-b" data-reveal style="transition-delay:.05s"><img loading="lazy" decoding="async" src="assets/ext_day.jpg" alt="Vue d'ensemble des trois bâtiments"><figcaption>Vue d'ensemble — 3 bâtiments</figcaption></figure>
+      <figure class="g-c" data-reveal style="transition-delay:.1s"><img loading="lazy" decoding="async" src="assets/ext_terrasses.jpg" alt="Terrasses et claire-voie en Red Cedar"><figcaption>Terrasses & claire-voie</figcaption></figure>
+      <figure class="g-d" data-reveal style="transition-delay:.05s"><img loading="lazy" decoding="async" src="assets/ext_dusk.jpg" alt="Perspective de la résidence au crépuscule"><figcaption>Perspective au crépuscule</figcaption></figure>
+      <figure class="g-e" data-reveal style="transition-delay:.1s"><img loading="lazy" decoding="async" src="assets/int_f4_a.jpg" alt="Agencement intérieur d'un appartement"><figcaption>Agencement intérieur</figcaption></figure>
+      <figure class="g-f" data-reveal style="transition-delay:.15s"><img loading="lazy" decoding="async" src="assets/int_f4_b.jpg" alt="Séjour et terrasse d'un appartement"><figcaption>Séjour & terrasse</figcaption></figure>
     </div>
   </div>
 </section>
@@ -442,7 +489,8 @@
         <div class="num">06 — Contact</div>
         <h2 class="lead-title">Recevoir une<br><em>information</em></h2>
         <p class="contact__intro">Plaquette commerciale, grille de prix détaillée et disponibilités vous sont adressées sur simple demande.</p>
-        <img class="contact__logo" src="assets/logo_maista.png" alt="Logo MAISTÀ">
+        <a class="contact__mail" href="mailto:contact@aloe-immo.fr"><i data-lucide="mail"></i>contact@aloe-immo.fr</a>
+        <img loading="lazy" decoding="async" class="contact__logo" src="assets/logo_maista.png" alt="Logo MAISTÀ">
         <div class="contact__agences">
           <div class="ag"><div class="n">Agosta Immobilier</div><div class="d">Porticcio</div></div>
           <div class="ag"><div class="n">ORPI — Agence du Golfe</div><div class="d">Porticcio</div></div>
@@ -527,6 +575,30 @@
     onScroll();
   })();
 
+  // Mobile burger menu
+  (function(){
+    var nav = document.getElementById('nav');
+    var burger = document.getElementById('navBurger');
+    var links = document.getElementById('navLinks');
+    if (!nav || !burger || !links) return;
+    function setIcon(name){ burger.innerHTML = '<i data-lucide="'+name+'"></i>'; if (window.lucide) lucide.createIcons({attrs:{'stroke-width':1.25}}); }
+    function close(){ nav.classList.remove('is-open'); burger.setAttribute('aria-expanded','false'); burger.setAttribute('aria-label','Ouvrir le menu'); setIcon('menu'); }
+    function open(){ nav.classList.add('is-open'); burger.setAttribute('aria-expanded','true'); burger.setAttribute('aria-label','Fermer le menu'); setIcon('x'); }
+    burger.addEventListener('click', function(){ nav.classList.contains('is-open') ? close() : open(); });
+    links.addEventListener('click', function(e){ if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('is-open')) close(); });
+  })();
+
+  // Masquer le bouton flottant quand la section Contact est à l'écran
+  (function(){
+    var fab = document.getElementById('fab');
+    var contact = document.getElementById('contact');
+    if (!fab || !contact || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(entries){
+      fab.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }, {threshold:0.12}).observe(contact);
+  })();
+
   // Scroll reveals — animate in real browsers, snap instantly where CSS clocks are frozen (embedded previews)
   (function(){
     var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
@@ -598,8 +670,10 @@
     function done(){ f.classList.add('sent'); f.scrollIntoView({behavior:'smooth', block:'center'}); }
   })();
 
-  // Icons
-  if (window.lucide) lucide.createIcons({attrs:{'stroke-width':1.25}});
+  // Icons (Lucide chargé en defer → init après le parsing)
+  function initIcons(){ if (window.lucide) lucide.createIcons({attrs:{'stroke-width':1.25}}); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initIcons);
+  else initIcons();
 </script>
 </body>
 </html>
