@@ -34,6 +34,26 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script defer src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ApartmentComplex",
+  "name": "Résidence MAISTÀ",
+  "description": "Résidence contemporaine de standing — 30 appartements F2 à F4 entre mer et maquis, au cœur de Porticcio (Corse-du-Sud). Livraison 4ᵉ trimestre 2028.",
+  "url": "https://designhandoffmaistasite.vercel.app/",
+  "image": "https://designhandoffmaistasite.vercel.app/assets/ext_golden.jpg",
+  "telephone": "+33695911448",
+  "email": "contact@aloe-immo.fr",
+  "numberOfAccommodationUnits": 30,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Porticcio",
+    "addressRegion": "Corse-du-Sud",
+    "addressCountry": "FR"
+  }
+}
+</script>
 <style>
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -185,8 +205,14 @@
   .contact .num{color:var(--maista-gold);}
   .contact .lead-title{color:var(--fg-on-dark-1);}
   .contact__intro{color:var(--fg-on-dark-2);font-weight:300;margin:24px 0 0;max-width:40ch;}
-  .contact__mail{display:inline-flex;align-items:center;gap:10px;margin-top:22px;color:var(--maista-gold-soft);
+  .contact__mail{display:flex;width:max-content;align-items:center;gap:10px;margin-top:22px;color:var(--maista-gold-soft);
                  font-family:var(--font-sans);font-size:15px;letter-spacing:0.02em;border-bottom:1px solid transparent;transition:border-color var(--t-base) var(--ease-out);}
+  .contact__dl{display:inline-flex;align-items:center;gap:11px;margin-top:26px;border:1px solid var(--rule-on-dark);
+               padding:14px 24px;font-family:var(--font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+               color:var(--fg-on-dark-1);transition:all var(--t-base) var(--ease-out);}
+  .contact__dl i{width:16px;height:16px;color:var(--maista-gold);transition:color var(--t-base) var(--ease-out);}
+  .contact__dl:hover{background:var(--maista-gold);border-color:var(--maista-gold);color:var(--maista-forest);}
+  .contact__dl:hover i{color:var(--maista-forest);}
   .contact__mail:hover{border-bottom-color:var(--maista-gold-soft);}
   .contact__mail i{width:17px;height:17px;color:var(--maista-gold);}
   .contact__logo{width:96px;margin-top:40px;border:1px solid var(--rule-on-dark);}
@@ -436,7 +462,7 @@
         </div>
       </article>
     </div>
-    <p class="prest__note" data-reveal>Derniers étages réservés aux F4 — vues mer et mer&nbsp;++. Plans détaillés et disponibilités communiqués sur demande.</p>
+    <p class="prest__note" data-reveal>Derniers étages réservés aux F4 — vues mer et mer&nbsp;++, validées par drône Géomètre. Plans détaillés et disponibilités communiqués sur demande.</p>
   </div>
 </section>
 
@@ -449,12 +475,12 @@
       <hr class="gold" style="margin-top:28px">
     </div>
     <div class="gal__grid">
-      <figure class="g-a" data-reveal><img loading="lazy" decoding="async" src="assets/ext_golden.jpg" alt="Perspective de la résidence à la lumière de fin d'après-midi"><figcaption>Perspective — lumière de fin d'après-midi</figcaption></figure>
-      <figure class="g-b" data-reveal style="transition-delay:.05s"><img loading="lazy" decoding="async" src="assets/ext_day.jpg" alt="Vue d'ensemble des trois bâtiments"><figcaption>Vue d'ensemble — 3 bâtiments</figcaption></figure>
-      <figure class="g-c" data-reveal style="transition-delay:.1s"><img loading="lazy" decoding="async" src="assets/ext_terrasses.jpg" alt="Terrasses et claire-voie en Red Cedar"><figcaption>Terrasses & claire-voie</figcaption></figure>
+      <figure class="g-a" data-reveal><img loading="lazy" decoding="async" src="assets/seaview1.jpg" alt="Terrasse ouverte sur le golfe d'Ajaccio"><figcaption>Terrasse — vue sur le golfe d'Ajaccio</figcaption></figure>
+      <figure class="g-b" data-reveal style="transition-delay:.05s"><img loading="lazy" decoding="async" src="assets/int_sejour.jpg" alt="Séjour avec vue mer"><figcaption>Séjour — vue mer</figcaption></figure>
+      <figure class="g-c" data-reveal style="transition-delay:.1s"><img loading="lazy" decoding="async" src="assets/int_chambre.jpg" alt="Chambre avec vue mer"><figcaption>Chambre — vue mer</figcaption></figure>
       <figure class="g-d" data-reveal style="transition-delay:.05s"><img loading="lazy" decoding="async" src="assets/ext_dusk.jpg" alt="Perspective de la résidence au crépuscule"><figcaption>Perspective au crépuscule</figcaption></figure>
-      <figure class="g-e" data-reveal style="transition-delay:.1s"><img loading="lazy" decoding="async" src="assets/int_f4_a.jpg" alt="Agencement intérieur d'un appartement"><figcaption>Agencement intérieur</figcaption></figure>
-      <figure class="g-f" data-reveal style="transition-delay:.15s"><img loading="lazy" decoding="async" src="assets/int_f4_b.jpg" alt="Séjour et terrasse d'un appartement"><figcaption>Séjour & terrasse</figcaption></figure>
+      <figure class="g-e" data-reveal style="transition-delay:.1s"><img loading="lazy" decoding="async" src="assets/ext_terrasses.jpg" alt="Terrasses et claire-voie en Red Cedar"><figcaption>Terrasses & claire-voie</figcaption></figure>
+      <figure class="g-f" data-reveal style="transition-delay:.15s"><img loading="lazy" decoding="async" src="assets/ext_day.jpg" alt="Vue d'ensemble des trois bâtiments"><figcaption>Vue d'ensemble — 3 bâtiments</figcaption></figure>
     </div>
   </div>
 </section>
@@ -489,7 +515,9 @@
         <div class="num">06 — Contact</div>
         <h2 class="lead-title">Recevoir une<br><em>information</em></h2>
         <p class="contact__intro">Plaquette commerciale, grille de prix détaillée et disponibilités vous sont adressées sur simple demande.</p>
-        <a class="contact__mail" href="mailto:contact@aloe-immo.fr"><i data-lucide="mail"></i>contact@aloe-immo.fr</a>
+        <a class="contact__mail" href="tel:+33695911448"><i data-lucide="phone"></i>+33 6 95 91 14 48</a>
+        <a class="contact__mail" href="mailto:contact@aloe-immo.fr" style="margin-top:10px"><i data-lucide="mail"></i>contact@aloe-immo.fr</a>
+        <a class="contact__dl" href="assets/plaquette-maista.pdf" download="Plaquette Residence MAISTA.pdf"><i data-lucide="download"></i>Télécharger la plaquette</a>
         <img loading="lazy" decoding="async" class="contact__logo" src="assets/logo_maista.png" alt="Logo MAISTÀ">
         <div class="contact__agences">
           <div class="ag"><div class="n">Agosta Immobilier</div><div class="d">Porticcio</div></div>
@@ -544,6 +572,7 @@
           <li><a href="#typologies">Typologies & prix</a></li>
           <li><a href="#prestations">Prestations</a></li>
           <li><a href="#galerie">Galerie</a></li>
+          <li><a href="assets/plaquette-maista.pdf" download="Plaquette Residence MAISTA.pdf">Plaquette (PDF)</a></li>
         </ul>
       </div>
       <div>
