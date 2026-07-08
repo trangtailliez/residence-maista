@@ -10,8 +10,9 @@
  * ================================================================== */
 
 // ============ CONFIG ============
-var NOTIFY_EMAIL = 'contact@aloe-immo.fr';   // destinataire de la notification
+var NOTIFY_EMAIL = 'romain@aloe-immo.fr, contact@aloe-immo.fr';  // destinataires de la notification
 var SHEET_NAME   = 'Leads';                  // onglet du Google Sheet
+var PROGRAMME    = 'MAISTA';                 // référence programme pour le CRM Aloé
 
 // --- CRM Aloé : activer l'UNE des 2 options quand l'info sera connue ---
 // Option A — email-to-lead : mettre l'adresse d'import du CRM (laisser '' si non utilisé)
@@ -70,9 +71,10 @@ function _sheet(){
 }
 
 function _notify(p, now){
-  var subject = 'Nouveau lead MAISTÀ — ' + (p.prenom || '') + ' ' + (p.nom || '');
+  var subject = '[' + PROGRAMME + '] Nouveau lead — ' + (p.prenom || '') + ' ' + (p.nom || '');
   var body =
-    'Nouvelle demande depuis le site MAISTÀ\n\n' +
+    'Nouvelle demande depuis le site residence-maista.fr\n\n' +
+    'Programme   : ' + PROGRAMME + '\n' +
     'Date        : ' + now.toLocaleString('fr-FR') + '\n' +
     'Prénom      : ' + (p.prenom || '') + '\n' +
     'Nom         : ' + (p.nom || '') + '\n' +
@@ -96,8 +98,8 @@ function _forwardToCRM(p, now){
   if (CRM_EMAIL){
     MailApp.sendEmail({
       to: CRM_EMAIL,
-      subject: 'Lead MAISTÀ — ' + (p.prenom || '') + ' ' + (p.nom || ''),
-      body: JSON.stringify(p, null, 2),
+      subject: '[' + PROGRAMME + '] Lead — ' + (p.prenom || '') + ' ' + (p.nom || ''),
+      body: JSON.stringify(Object.assign({programme: PROGRAMME}, p), null, 2),
       replyTo: p.email || ''
     });
   }
@@ -111,6 +113,7 @@ function _forwardToCRM(p, now){
       headers: headers,
       muteHttpExceptions: true,
       payload: JSON.stringify({
+        program:   PROGRAMME,
         firstname: p.prenom || '',
         lastname:  p.nom || '',
         email:     p.email || '',
