@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://designhandoffmaistasite.vercel.app/sitemap.xml
+Sitemap: https://residence-maista.fr/sitemap.xml
