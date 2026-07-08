@@ -891,7 +891,6 @@
   (function(){
     document.querySelectorAll('a[href^="tel:"]').forEach(function(a){ a.addEventListener('click', function(){ track('clic_telephone'); }); });
     document.querySelectorAll('a[download]').forEach(function(a){ a.addEventListener('click', function(){ track('telechargement_plaquette'); }); });
-    document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){ a.addEventListener('click', function(){ track('clic_whatsapp'); }); });
   })();
 
   // Masquer le bouton flottant quand la section Contact est à l'écran
