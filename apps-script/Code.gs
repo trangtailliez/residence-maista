@@ -14,12 +14,11 @@ var NOTIFY_EMAIL = 'romain@aloe-immo.fr, contact@aloe-immo.fr';  // destinataire
 var SHEET_NAME   = 'Leads';                  // onglet du Google Sheet
 var PROGRAMME    = 'MAISTA';                 // référence programme pour le CRM Aloé
 
-// --- CRM Aloé : activer l'UNE des 2 options quand l'info sera connue ---
-// Option A — email-to-lead : mettre l'adresse d'import du CRM (laisser '' si non utilisé)
+// --- CRM Aloé (crm.aloe-immo.fr) — programme « Résidence MAISTÀ » ---
+var CRM_WEBHOOK       = 'https://crm.aloe-immo.fr/api/webhooks/wix/maista-porticcio';
+var CRM_WEBHOOK_TOKEN = '50f2d695e08d581df8e42625f0ad6bceb4fe015282a08262';
+// Option email-to-lead, non utilisée :
 var CRM_EMAIL = '';
-// Option B — API / webhook : mettre l'URL (laisser '' si non utilisé) + le token éventuel
-var CRM_WEBHOOK       = '';
-var CRM_WEBHOOK_TOKEN = '';
 // ================================
 
 function doPost(e){
@@ -94,7 +93,7 @@ function _notify(p, now){
 }
 
 function _forwardToCRM(p, now){
-  // Option A — email-to-lead
+  // Email-to-lead (non utilisé par défaut)
   if (CRM_EMAIL){
     MailApp.sendEmail({
       to: CRM_EMAIL,
@@ -103,25 +102,24 @@ function _forwardToCRM(p, now){
       replyTo: p.email || ''
     });
   }
-  // Option B — API / webhook
+  // Webhook CRM Aloé — contrat /api/webhooks/wix/{slug}
   if (CRM_WEBHOOK){
-    var headers = {};
-    if (CRM_WEBHOOK_TOKEN) headers.Authorization = 'Bearer ' + CRM_WEBHOOK_TOKEN;
+    var message = [];
+    if (p.typo) message.push('Typologie souhaitée : ' + p.typo);
+    if (p.msg)  message.push(p.msg);
+    if (p.page) message.push('Source : ' + p.page);
     UrlFetchApp.fetch(CRM_WEBHOOK, {
       method: 'post',
       contentType: 'application/json',
-      headers: headers,
+      headers: { 'x-webhook-secret': CRM_WEBHOOK_TOKEN },
       muteHttpExceptions: true,
       payload: JSON.stringify({
-        program:   PROGRAMME,
-        firstname: p.prenom || '',
-        lastname:  p.nom || '',
+        firstName: p.prenom || '',
+        lastName:  p.nom || '',
         email:     p.email || '',
         phone:     p.tel || '',
-        type:      p.typo || '',
-        message:   p.msg || '',
-        source:    p.page || '',
-        date:      now.toISOString()
+        message:   message.join('\n'),
+        consent:   Boolean(p.consent)
       })
     });
   }
