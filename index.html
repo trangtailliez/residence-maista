@@ -109,7 +109,7 @@
   .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:var(--fg-on-dark-1);overflow:hidden;}
   .hero__bg{position:absolute;inset:0;background:url('assets/ext_golden.jpg') center 58%/cover no-repeat;transform:scale(1.06);}
   .hero__veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,34,28,0.82) 2%,rgba(22,34,28,0.30) 42%,rgba(22,34,28,0.42) 100%);}
-  .hero__inner{position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 7vw 9vh;}
+  .hero__inner{position:relative;width:100%;max-width:1240px;margin:0 auto;padding:130px 7vw 9vh;}
   @media(min-width:1400px){.hero__inner{padding:0 64px 96px;}}
   .hero__eyebrow{color:var(--maista-gold);}
   .hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(52px,8.4vw,124px);line-height:0.98;
@@ -124,6 +124,37 @@
                 font-family:var(--font-sans);font-size:9.5px;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-on-dark-3);}
   .hero__scroll span{width:1px;height:40px;background:linear-gradient(var(--maista-gold),transparent);animation:scrollpulse 2.4s var(--ease-in-out) infinite;}
   @keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(.6);}50%{opacity:1;transform:scaleY(1);}}
+  @media(max-height:860px){.hero__scroll{display:none;}}
+
+  /* ---------------- CTA ---------------- */
+  .btn-gold{display:inline-flex;align-items:center;gap:11px;background:var(--maista-gold);color:var(--maista-forest);
+            font-family:var(--font-sans);font-size:12px;letter-spacing:0.24em;text-transform:uppercase;padding:16px 28px;
+            transition:opacity var(--t-base) var(--ease-out);}
+  .btn-gold:hover{opacity:.92;}
+  .btn-gold i{width:16px;height:16px;}
+  .btn-ghost{display:inline-flex;align-items:center;gap:11px;border:1px solid var(--rule-on-dark);color:var(--fg-on-dark-1);
+             font-family:var(--font-sans);font-size:12px;letter-spacing:0.24em;text-transform:uppercase;padding:15px 26px;
+             transition:all var(--t-base) var(--ease-out);}
+  .btn-ghost i{width:16px;height:16px;color:var(--maista-gold);transition:color var(--t-base) var(--ease-out);}
+  .btn-ghost:hover{background:var(--maista-gold);border-color:var(--maista-gold);color:var(--maista-forest);}
+  .btn-ghost:hover i{color:var(--maista-forest);}
+  .hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;}
+  .cta-line{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-family:var(--font-sans);font-size:11.5px;
+            letter-spacing:0.22em;text-transform:uppercase;color:var(--maista-forest);border-bottom:1px solid var(--maista-gold);
+            padding-bottom:7px;transition:color var(--t-base) var(--ease-out);}
+  .cta-line i{width:16px;height:16px;color:var(--maista-gold);}
+  .cta-line:hover{color:var(--maista-gold-deep);}
+  .tcard__cta{display:flex;justify-content:center;align-items:center;gap:9px;margin-top:20px;border:1px solid var(--maista-forest);
+              padding:13px;font-family:var(--font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+              color:var(--maista-forest);transition:all var(--t-base) var(--ease-out);}
+  .tcard__cta i{width:15px;height:15px;}
+  .tcard__cta:hover{background:var(--maista-forest);color:var(--fg-on-dark-1);}
+  .ctaband{background:var(--maista-forest);color:var(--fg-on-dark-1);padding:clamp(56px,8vh,96px) 0;}
+  .ctaband__in{display:flex;align-items:center;justify-content:space-between;gap:34px;flex-wrap:wrap;}
+  .ctaband__title{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.4vw,46px);line-height:1.08;
+                  color:var(--fg-on-dark-1);margin:14px 0 0;}
+  .ctaband__title em{font-style:italic;color:var(--maista-gold-soft);}
+  .ctaband__actions{display:flex;flex-wrap:wrap;gap:14px;}
 
   /* ---------------- SECTION SCAFFOLD ---------------- */
   section{position:relative;}
@@ -365,6 +396,10 @@
       <div><div class="k m-numeral">3</div><div class="l">Bâtiments · R+2</div></div>
       <div><div class="k m-numeral">T4 2028</div><div class="l">Livraison</div></div>
     </div>
+    <div class="hero__cta" data-reveal style="transition-delay:.3s">
+      <a class="btn-gold" href="#contact">Demander une information <i data-lucide="arrow-right"></i></a>
+      <a class="btn-ghost" href="#typologies">Découvrir les appartements</a>
+    </div>
   </div>
   <div class="hero__scroll">Découvrir<span></span></div>
 </header>
@@ -395,6 +430,7 @@
       <div><div class="k m-numeral">RE<small>2020</small></div><div class="l">Performance<br>énergétique</div></div>
       <div><div class="k m-numeral">46</div><div class="l">Box garage<br>+ 48 places aériennes</div></div>
     </div>
+    <a class="cta-line" href="assets/plaquette-maista.pdf" download="Plaquette Residence MAISTA.pdf" data-reveal><i data-lucide="download"></i>Télécharger la plaquette du programme</a>
   </div>
 </section>
 
@@ -416,6 +452,7 @@
           <span><i data-lucide="trees"></i>Collines de maquis</span>
           <span><i data-lucide="store"></i>Commerces</span>
         </div>
+        <a class="btn-ghost" href="#contact" style="margin-top:36px">Être recontacté <i data-lucide="arrow-right"></i></a>
       </div>
       <div class="sit__media" data-reveal style="transition-delay:.1s">
         <img loading="lazy" decoding="async" class="aerial" src="assets/aerial_maista_pin.jpg" alt="Vue aérienne de Porticcio avec l'emplacement de la résidence MAISTÀ">
@@ -447,6 +484,7 @@
             <div><span>Stationnement</span><span class="m-numeral">1 place</span></div>
           </div>
           <div class="tcard__price"><div class="lbl">À partir de</div><div class="val m-numeral">289 000 €</div></div>
+          <a class="tcard__cta" href="#contact" data-typo="F2 — 43 m²">Recevoir prix &amp; plans <i data-lucide="arrow-right"></i></a>
         </div>
       </article>
       <article class="tcard" data-reveal style="transition-delay:.1s">
@@ -459,6 +497,7 @@
             <div><span>Stationnement</span><span class="m-numeral">1 place</span></div>
           </div>
           <div class="tcard__price"><div class="lbl">À partir de</div><div class="val m-numeral">440 000 €</div></div>
+          <a class="tcard__cta" href="#contact" data-typo="F3 — 67 m²">Recevoir prix &amp; plans <i data-lucide="arrow-right"></i></a>
         </div>
       </article>
       <article class="tcard" data-reveal style="transition-delay:.2s">
@@ -471,6 +510,7 @@
             <div><span>Stationnement</span><span class="m-numeral">2 + garage</span></div>
           </div>
           <div class="tcard__price"><div class="lbl">À partir de</div><div class="val m-numeral">820 000 €</div></div>
+          <a class="tcard__cta" href="#contact" data-typo="F4 — 107 m²">Recevoir prix &amp; plans <i data-lucide="arrow-right"></i></a>
         </div>
       </article>
     </div>
@@ -495,6 +535,20 @@
       <figure class="g-f" data-reveal style="transition-delay:.15s"><img loading="lazy" decoding="async" src="assets/ext_day.jpg" alt="Vue d'ensemble des trois bâtiments"><figcaption>Vue d'ensemble — 3 bâtiments</figcaption></figure>
       <figure class="g-g" data-reveal style="transition-delay:.05s"><img loading="lazy" decoding="async" src="assets/seaview2.jpg" alt="Terrasse panoramique face à la baie"><figcaption>Terrasse — vue mer panoramique</figcaption></figure>
       <figure class="g-h" data-reveal style="transition-delay:.1s"><img loading="lazy" decoding="async" src="assets/int_sejour2.jpg" alt="Séjour et salle à manger"><figcaption>Séjour & salle à manger</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANDEAU CTA ============ -->
+<section class="ctaband">
+  <div class="wrap ctaband__in" data-reveal>
+    <div>
+      <div class="m-eyebrow" style="color:var(--maista-gold)">30 appartements seulement · Livraison T4 2028</div>
+      <h2 class="ctaband__title">Votre appartement entre <em>mer et maquis</em></h2>
+    </div>
+    <div class="ctaband__actions">
+      <a class="btn-gold" href="#contact">Demander une information <i data-lucide="arrow-right"></i></a>
+      <a class="btn-ghost" href="tel:+33695911448"><i data-lucide="phone"></i>+33 6 95 91 14 48</a>
     </div>
   </div>
 </section>
@@ -630,6 +684,20 @@
     burger.addEventListener('click', function(){ nav.classList.contains('is-open') ? close() : open(); });
     links.addEventListener('click', function(e){ if (e.target.closest('a')) close(); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('is-open')) close(); });
+  })();
+
+  // CTA typologies — présélectionne la typologie dans le formulaire
+  (function(){
+    var sel = document.getElementById('typo');
+    if (!sel) return;
+    document.querySelectorAll('[data-typo]').forEach(function(a){
+      a.addEventListener('click', function(){
+        var v = a.getAttribute('data-typo');
+        for (var i = 0; i < sel.options.length; i++){
+          if (sel.options[i].text === v){ sel.selectedIndex = i; break; }
+        }
+      });
+    });
   })();
 
   // Masquer le bouton flottant quand la section Contact est à l'écran
