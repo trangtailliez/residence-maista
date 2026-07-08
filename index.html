@@ -28,18 +28,18 @@
 <meta property="og:title" content="MAISTÀ — Résidence contemporaine · Porticcio, Corse-du-Sud">
 <meta property="og:description" content="30 appartements F2 à F4 entre mer et maquis, au cœur de Porticcio. Livraison 4ᵉ trimestre 2028.">
 <meta property="og:url" content="https://residence-maista.fr/">
-<meta property="og:image" content="https://residence-maista.fr/assets/ext_golden.jpg">
+<meta property="og:image" content="https://residence-maista.fr/assets/hero_seaview.jpg">
 <meta property="og:image:width" content="2200">
-<meta property="og:image:height" content="1238">
+<meta property="og:image:height" content="1475">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MAISTÀ — Résidence contemporaine · Porticcio, Corse-du-Sud">
 <meta name="twitter:description" content="30 appartements F2 à F4 entre mer et maquis, au cœur de Porticcio. Livraison 4ᵉ trimestre 2028.">
-<meta name="twitter:image" content="https://residence-maista.fr/assets/ext_golden.jpg">
+<meta name="twitter:image" content="https://residence-maista.fr/assets/hero_seaview.jpg">
 
 <!-- Polices : preconnect + preload du visuel hero (LCP) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/ext_golden.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero_seaview.jpg" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script defer src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
@@ -51,7 +51,7 @@
   "name": "Résidence MAISTÀ",
   "description": "Résidence contemporaine de standing — 30 appartements F2 à F4 entre mer et maquis, au cœur de Porticcio (Corse-du-Sud). Livraison 4ᵉ trimestre 2028.",
   "url": "https://residence-maista.fr/",
-  "image": "https://residence-maista.fr/assets/ext_golden.jpg",
+  "image": "https://residence-maista.fr/assets/hero_seaview.jpg",
   "telephone": "+33695911448",
   "email": "contact@aloe-immo.fr",
   "numberOfAccommodationUnits": 30,
@@ -107,10 +107,12 @@
 
   /* ---------------- HERO ---------------- */
   .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:var(--fg-on-dark-1);overflow:hidden;}
-  .hero__bg{position:absolute;inset:0;background:url('assets/ext_golden.jpg') center 58%/cover no-repeat;transform:scale(1.06);}
-  .hero__veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,34,28,0.82) 2%,rgba(22,34,28,0.30) 42%,rgba(22,34,28,0.42) 100%);}
+  .hero__bg{position:absolute;inset:0;background:url('assets/hero_seaview.jpg') center 42%/cover no-repeat;transform:scale(1.06);}
+  .hero__veil{position:absolute;inset:0;background:
+    linear-gradient(to right,rgba(22,34,28,0.52) 0%,rgba(22,34,28,0.18) 55%,rgba(22,34,28,0.28) 100%),
+    linear-gradient(to top,rgba(22,34,28,0.85) 4%,rgba(22,34,28,0.38) 48%,rgba(22,34,28,0.42) 100%);}
   .hero__inner{position:relative;width:100%;max-width:1240px;margin:0 auto;padding:130px 7vw 9vh;}
-  @media(min-width:1400px){.hero__inner{padding:0 64px 96px;}}
+  @media(min-width:1400px){.hero__inner{padding:130px 64px 96px;}}
   .hero__eyebrow{color:var(--maista-gold);}
   .hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(52px,8.4vw,124px);line-height:0.98;
            letter-spacing:0.005em;margin:18px 0 0;max-width:13ch;color:var(--fg-on-dark-1);}
@@ -241,6 +243,29 @@
   .pitem p{font-family:var(--font-sans);font-weight:300;font-size:12.5px;color:var(--fg-3);margin:0;line-height:1.5;}
   .prest__note{font-family:var(--font-sans);font-size:11px;color:var(--fg-3);margin-top:22px;letter-spacing:0.02em;}
 
+  /* ---------------- GARANTIES / PARTENAIRES ---------------- */
+  .garanties{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(40px,5vw,64px);
+             border-top:1px solid var(--rule-hairline);border-bottom:1px solid var(--rule-hairline);}
+  .garanties>div{display:flex;align-items:center;gap:14px;padding:24px 22px 24px 0;border-right:1px solid var(--rule-hairline);}
+  .garanties>div:last-child{border-right:0;}
+  .garanties i{width:24px;height:24px;color:var(--maista-gold);flex:none;}
+  .garanties .t{font-family:var(--font-sans);font-weight:500;font-size:12.5px;letter-spacing:0.04em;color:var(--fg-1);line-height:1.35;}
+  .garanties .d{font-family:var(--font-sans);font-weight:300;font-size:11px;color:var(--fg-3);margin-top:3px;line-height:1.4;}
+  .partners{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;}
+  .partners .pl{font-family:var(--font-sans);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:var(--fg-3);}
+  .partners span{font-family:var(--font-display);font-weight:500;font-size:16.5px;color:var(--fg-2);}
+
+  /* ---------------- FAQ ---------------- */
+  .faq__wrap{max-width:860px;margin-top:44px;}
+  .faq details{border-bottom:1px solid var(--rule-hairline);}
+  .faq details:first-of-type{border-top:1px solid var(--rule-hairline);}
+  .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;
+               padding:21px 0;font-family:var(--font-display);font-weight:500;font-size:19px;color:var(--fg-1);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary i{width:18px;height:18px;color:var(--maista-gold);flex:none;transition:transform var(--t-base) var(--ease-out);}
+  .faq details[open] summary i{transform:rotate(45deg);}
+  .faq details p{font-family:var(--font-sans);font-weight:300;font-size:14.5px;line-height:1.65;color:var(--fg-2);margin:0 0 22px;max-width:72ch;}
+
   /* ---------------- CONTACT ---------------- */
   .contact{background:var(--maista-forest-deep);color:var(--fg-on-dark-1);}
   .contact__grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(40px,6vw,96px);margin-top:14px;align-items:start;}
@@ -263,8 +288,32 @@
   .contact__agences .ag .n{font-family:var(--font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg-on-dark-1);}
   .contact__agences .ag .d{font-family:var(--font-sans);font-size:12.5px;color:var(--fg-on-dark-3);font-weight:300;margin-top:4px;}
 
-  form.lead{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px;}
-  form.lead .full{grid-column:1 / -1;}
+  form.lead{display:block;}
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px;}
+  .fgrid .full{grid-column:1 / -1;}
+  .fstep{display:none;}
+  .fstep.is-on{display:block;animation:stepin .4s var(--ease-out);}
+  @keyframes stepin{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .fstep__label{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;
+                font-family:var(--font-sans);font-size:11px;letter-spacing:0.26em;text-transform:uppercase;
+                color:var(--maista-gold);margin-bottom:22px;}
+  .fback{background:none;border:0;cursor:pointer;font-family:var(--font-sans);font-size:10.5px;letter-spacing:0.16em;
+         text-transform:uppercase;color:var(--fg-on-dark-3);transition:color var(--t-quick) var(--ease-out);padding:0;}
+  .fback:hover{color:var(--fg-on-dark-1);}
+  .typochoice{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .typochoice button{display:flex;flex-direction:column;align-items:flex-start;gap:7px;text-align:left;cursor:pointer;
+                     background:transparent;border:1px solid var(--rule-on-dark);padding:22px 20px;
+                     transition:all var(--t-base) var(--ease-out);}
+  .typochoice button:hover,.typochoice button.is-sel{background:var(--maista-gold);border-color:var(--maista-gold);}
+  .typochoice .tc-t{font-family:var(--font-display);font-weight:500;font-size:30px;line-height:1;color:var(--fg-on-dark-1);transition:color var(--t-base) var(--ease-out);}
+  .typochoice .tc-d{font-family:var(--font-sans);font-weight:300;font-size:12px;letter-spacing:0.06em;color:var(--fg-on-dark-3);transition:color var(--t-base) var(--ease-out);}
+  .typochoice button:hover .tc-t,.typochoice button.is-sel .tc-t{color:var(--maista-forest);}
+  .typochoice button:hover .tc-d,.typochoice button.is-sel .tc-d{color:var(--maista-forest);}
+  .field label small{font-size:9px;letter-spacing:0.12em;text-transform:none;color:var(--fg-on-dark-3);}
+  .reassure{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:2px;}
+  .reassure span{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-weight:300;
+                 font-size:11px;letter-spacing:0.04em;color:var(--fg-on-dark-3);}
+  .reassure i{width:14px;height:14px;color:var(--maista-gold);}
   .field{display:flex;flex-direction:column;gap:8px;}
   .field label{font-family:var(--font-sans);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--fg-on-dark-3);}
   .field input,.field select,.field textarea{background:transparent;border:0;border-bottom:1px solid var(--rule-on-dark);
@@ -284,7 +333,7 @@
   .form-done{grid-column:1 / -1;display:none;border:1px solid var(--maista-gold);padding:28px 30px;}
   .form-done .t{font-family:var(--font-display);font-size:26px;color:var(--fg-on-dark-1);}
   .form-done p{font-family:var(--font-sans);font-weight:300;color:var(--fg-on-dark-2);margin:10px 0 0;font-size:14px;}
-  form.lead.sent .field,form.lead.sent .consent,form.lead.sent .submit{display:none;}
+  form.lead.sent .fstep{display:none;}
   form.lead.sent .form-done{display:block;}
   .form-error{grid-column:1 / -1;display:none;border:1px solid var(--maista-gold-soft);padding:18px 22px;}
   form.lead.is-error .form-error{display:block;}
@@ -304,6 +353,45 @@
   .footer ul li{font-family:var(--font-sans);font-size:12.5px;font-weight:300;color:var(--fg-on-dark-2);}
   .footer__bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:54px;padding-top:22px;border-top:1px solid var(--rule-on-dark);
                   font-family:var(--font-sans);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-on-dark-3);}
+
+  /* ---------------- EXIT INTENT ---------------- */
+  .exit{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:20px;
+        background:rgba(17,18,16,.55);opacity:0;visibility:hidden;transition:opacity var(--t-base) var(--ease-out),visibility var(--t-base);}
+  .exit.is-open{opacity:1;visibility:visible;}
+  .exit__card{position:relative;width:min(540px,94vw);background:var(--maista-forest-deep);border:1px solid var(--rule-on-dark);
+              padding:46px 44px 38px;box-shadow:0 30px 80px rgba(0,0,0,.45);}
+  .exit__close{position:absolute;top:14px;right:14px;background:none;border:0;color:var(--fg-on-dark-3);cursor:pointer;padding:6px;}
+  .exit__close:hover{color:var(--fg-on-dark-1);}
+  .exit__close i{width:18px;height:18px;}
+  .exit__title{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,3vw,32px);color:var(--fg-on-dark-1);margin:12px 0 0;line-height:1.15;}
+  .exit__title em{font-style:italic;color:var(--maista-gold-soft);}
+  .exit__p{font-family:var(--font-sans);font-weight:300;font-size:13.5px;color:var(--fg-on-dark-2);margin:14px 0 24px;line-height:1.6;}
+  .exit__row{display:flex;gap:12px;flex-wrap:wrap;}
+  .exit__row input{flex:1;min-width:200px;background:transparent;border:0;border-bottom:1px solid var(--rule-on-dark);
+                   color:var(--fg-on-dark-1);font-family:var(--font-sans);font-size:15px;padding:10px 0;outline:none;
+                   transition:border-color var(--t-base) var(--ease-out);}
+  .exit__row input::placeholder{color:var(--fg-on-dark-3);}
+  .exit__row input:focus{border-bottom-color:var(--maista-gold);}
+  .exit__row button{background:var(--maista-gold);color:var(--maista-forest);border:0;cursor:pointer;
+                    font-family:var(--font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;padding:13px 24px;
+                    transition:opacity var(--t-base) var(--ease-out);}
+  .exit__row button:hover{opacity:.92;}
+  .exit__note{font-family:var(--font-sans);font-weight:300;font-size:10.5px;color:var(--fg-on-dark-3);margin-top:16px;line-height:1.55;}
+
+  /* ---------------- LIGHTBOX ---------------- */
+  .lb{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;background:rgba(17,18,16,.92);
+      opacity:0;visibility:hidden;transition:opacity var(--t-base) var(--ease-out),visibility var(--t-base);}
+  .lb.is-open{opacity:1;visibility:visible;}
+  .lb img{max-width:92vw;max-height:86vh;object-fit:contain;border:1px solid var(--rule-on-dark);}
+  .lb__cap{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font-family:var(--font-sans);font-size:10.5px;
+           letter-spacing:0.24em;text-transform:uppercase;color:var(--fg-on-dark-2);white-space:nowrap;}
+  .lb button{position:absolute;background:none;border:0;color:var(--fg-on-dark-2);cursor:pointer;padding:10px;transition:color var(--t-quick) var(--ease-out);}
+  .lb button:hover{color:var(--maista-gold);}
+  .lb button i{width:30px;height:30px;}
+  .lb__close{top:18px;right:18px;}
+  .lb__prev{left:12px;top:50%;transform:translateY(-50%);}
+  .lb__next{right:12px;top:50%;transform:translateY(-50%);}
+  .gal__grid figure{cursor:zoom-in;}
 
   /* ---------------- REVEAL ---------------- */
   [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out);}
@@ -346,18 +434,23 @@
     .figs > div:nth-child(2){border-right:0;}
     .typo__grid{grid-template-columns:1fr;}
     .prest__grid{grid-template-columns:1fr 1fr;}
+    .garanties{grid-template-columns:1fr 1fr;}
+    .garanties>div:nth-child(2n){border-right:0;}
     .footer__top{grid-template-columns:1fr;gap:34px;}
     .gal__grid{grid-template-columns:repeat(2,1fr);}
     .g-a{grid-column:span 2;grid-row:span 2;}
     .g-b,.g-c,.g-d,.g-e,.g-f{grid-column:span 1;}
     .g-g,.g-h{grid-column:span 2;}
-    form.lead{grid-template-columns:1fr;}
+    .fgrid{grid-template-columns:1fr;}
     .sit__media .mapcard{position:static;width:60%;margin:18px auto 0;}
   }
   @media(max-width:560px){
     .figs{grid-template-columns:1fr;}
     .figs > div{border-right:0;}
     .prest__grid{grid-template-columns:1fr;}
+    .garanties{grid-template-columns:1fr;}
+    .garanties>div{border-right:0;}
+    .typochoice{grid-template-columns:1fr;}
     .hero__meta div{padding-right:28px;}
   }
 </style>
@@ -527,7 +620,7 @@
       <hr class="gold" style="margin-top:28px">
     </div>
     <div class="gal__grid">
-      <figure class="g-a" data-reveal><img loading="lazy" decoding="async" src="assets/seaview1.jpg" alt="Terrasse ouverte sur le golfe d'Ajaccio"><figcaption>Terrasse — vue sur le golfe d'Ajaccio</figcaption></figure>
+      <figure class="g-a" data-reveal><img loading="lazy" decoding="async" src="assets/ext_golden.jpg" alt="Perspective de la résidence à la lumière de fin d'après-midi"><figcaption>Perspective — lumière de fin d'après-midi</figcaption></figure>
       <figure class="g-b" data-reveal style="transition-delay:.05s"><img loading="lazy" decoding="async" src="assets/int_sejour.jpg" alt="Séjour avec vue mer"><figcaption>Séjour — vue mer</figcaption></figure>
       <figure class="g-c" data-reveal style="transition-delay:.1s"><img loading="lazy" decoding="async" src="assets/int_chambre.jpg" alt="Chambre avec vue mer"><figcaption>Chambre — vue mer</figcaption></figure>
       <figure class="g-d" data-reveal style="transition-delay:.05s"><img loading="lazy" decoding="async" src="assets/ext_dusk.jpg" alt="Perspective de la résidence au crépuscule"><figcaption>Perspective au crépuscule</figcaption></figure>
@@ -572,6 +665,54 @@
       <div class="pitem" data-reveal style="transition-delay:.15s"><i data-lucide="layers"></i><h4>Matériaux nobles</h4><p>Pierre naturelle corse, claire-voie Red Cedar, carrelage 60×120.</p></div>
     </div>
     <p class="prest__note" data-reveal>Extrait de la notice descriptive. Prestations susceptibles d'adaptations en cours de chantier afin d'améliorer les performances énergétiques réglementaires.</p>
+
+    <div class="garanties" data-reveal>
+      <div><i data-lucide="percent"></i><div><div class="t">Frais de notaire réduits</div><div class="d">≈ 2-3 % dans le neuf, contre 7-8 % dans l'ancien</div></div></div>
+      <div><i data-lucide="shield-check"></i><div><div class="t">Garantie financière d'achèvement</div><div class="d">Votre achat sécurisé jusqu'à la livraison</div></div></div>
+      <div><i data-lucide="house"></i><div><div class="t">Garanties constructeur</div><div class="d">Décennale, biennale et parfait achèvement</div></div></div>
+      <div><i data-lucide="palette"></i><div><div class="t">Finitions personnalisables</div><div class="d">Sols, teintes, portes et placards au choix</div></div></div>
+    </div>
+    <div class="partners" data-reveal>
+      <span class="pl">Un projet porté par</span>
+      <span>Crédit Agricole de la Corse</span>
+      <span>Benjamin Xuereb Architecture</span>
+      <span>BATIFM</span>
+      <span>Me Renucci Savelli, notaire</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="num">06 — Questions fréquentes</div>
+      <h2 class="lead-title">Tout ce qu'il faut <em>savoir</em></h2>
+      <hr class="gold" style="margin-top:28px">
+    </div>
+    <div class="faq__wrap" data-reveal>
+      <details>
+        <summary>Quand la résidence sera-t-elle livrée ?<i data-lucide="plus"></i></summary>
+        <p>La livraison est prévue au 4ᵉ trimestre 2028. L'équipe commerciale vous tient informé de l'avancement du chantier à chaque grande étape.</p>
+      </details>
+      <details>
+        <summary>Quels sont les frais de notaire dans le neuf ?<i data-lucide="plus"></i></summary>
+        <p>Environ 2 à 3 % du prix d'achat, contre 7 à 8 % dans l'ancien — soit plusieurs milliers d'euros d'économie sur votre acquisition.</p>
+      </details>
+      <details>
+        <summary>Peut-on personnaliser son appartement ?<i data-lucide="plus"></i></summary>
+        <p>Oui. Chaque acquéreur choisit ses finitions parmi une gamme qualitative : revêtements de sols et murs, teintes, portes intérieures, placards aménagés. Une option d'aménagement complet avec mobilier peut également être proposée pour un appartement prêt à vivre dès la remise des clés.</p>
+      </details>
+      <details>
+        <summary>Quelles garanties en achetant sur plan ?<i data-lucide="plus"></i></summary>
+        <p>L'achat en VEFA est l'un des cadres les plus protecteurs : garantie financière d'achèvement (le programme est achevé quoi qu'il arrive), garantie de parfait achèvement, garantie biennale sur les équipements et garantie décennale sur le gros œuvre.</p>
+      </details>
+      <details>
+        <summary>Comment financer mon achat ?<i data-lucide="plus"></i></summary>
+        <p>Grâce à un partenariat dédié avec le Crédit Agricole de la Corse, vous bénéficiez d'un accompagnement personnalisé pour l'étude et le financement de votre projet. Parlez-en lors de votre premier échange avec l'équipe commerciale.</p>
+      </details>
+    </div>
+    <a class="cta-line" href="#contact" data-reveal><i data-lucide="arrow-right"></i>Une autre question ? Contactez-nous</a>
   </div>
 </section>
 
@@ -580,10 +721,11 @@
   <div class="wrap">
     <div class="contact__grid">
       <div data-reveal>
-        <div class="num">06 — Contact</div>
+        <div class="num">07 — Contact</div>
         <h2 class="lead-title">Recevoir une<br><em>information</em></h2>
         <p class="contact__intro">Plaquette commerciale, grille de prix détaillée et disponibilités vous sont adressées sur simple demande.</p>
         <a class="contact__mail" href="tel:+33695911448"><i data-lucide="phone"></i>+33 6 95 91 14 48</a>
+        <a class="contact__mail" href="https://wa.me/33695911448?text=Bonjour%2C%20je%20souhaite%20recevoir%20des%20informations%20sur%20la%20r%C3%A9sidence%20MAISTA%20%C3%A0%20Porticcio." target="_blank" rel="noopener" style="margin-top:10px"><i data-lucide="message-circle"></i>Écrire sur WhatsApp</a>
         <a class="contact__mail" href="mailto:contact@aloe-immo.fr" style="margin-top:10px"><i data-lucide="mail"></i>contact@aloe-immo.fr</a>
         <a class="contact__dl" href="assets/plaquette-maista.pdf" download="Plaquette Residence MAISTA.pdf"><i data-lucide="download"></i>Télécharger la plaquette</a>
         <img loading="lazy" decoding="async" class="contact__logo" src="assets/logo_maista.png" alt="Logo MAISTÀ">
@@ -595,25 +737,38 @@
       </div>
       <div data-reveal style="transition-delay:.1s">
         <form class="lead" id="leadForm" novalidate>
-          <div class="field"><label for="prenom">Prénom</label><input id="prenom" name="prenom" type="text" placeholder="Votre prénom" required></div>
-          <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" placeholder="Votre nom" required></div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="vous@email.fr" required></div>
-          <div class="field"><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" placeholder="06 00 00 00 00"></div>
-          <div class="field full"><label for="typo">Typologie souhaitée</label>
-            <select id="typo" name="typo">
-              <option value="">Indifférent</option>
-              <option>F2 — 43 m²</option>
-              <option>F3 — 67 m²</option>
-              <option>F4 — 107 m²</option>
-            </select>
+          <input type="hidden" id="typo" name="typo" value="">
+
+          <!-- Étape 1 : typologie (engagement facile) -->
+          <div class="fstep is-on" id="fstep1">
+            <div class="fstep__label">1/2 — Quel appartement vous intéresse&nbsp;?</div>
+            <div class="typochoice">
+              <button type="button" data-choice="F2 — 43 m²"><span class="tc-t">F2</span><span class="tc-d">43 m² · dès 289 000 €</span></button>
+              <button type="button" data-choice="F3 — 67 m²"><span class="tc-t">F3</span><span class="tc-d">67 m² · dès 440 000 €</span></button>
+              <button type="button" data-choice="F4 — 107 m²"><span class="tc-t">F4</span><span class="tc-d">107 m² · dès 820 000 €</span></button>
+              <button type="button" data-choice=""><span class="tc-t">?</span><span class="tc-d">Je ne sais pas encore</span></button>
+            </div>
           </div>
-          <div class="field full"><label for="msg">Message</label><textarea id="msg" name="msg" placeholder="Votre projet, vos questions…"></textarea></div>
-          <label class="consent"><input type="checkbox" name="consent" required>J'accepte d'être recontacté(e) par l'équipe commerciale au sujet de la résidence MAISTÀ.</label>
+
+          <!-- Étape 2 : coordonnées -->
+          <div class="fstep" id="fstep2">
+            <div class="fstep__label">2/2 — Vos coordonnées <button type="button" class="fback" id="fback">← Modifier mon choix</button></div>
+            <div class="fgrid">
+              <div class="field"><label for="prenom">Prénom</label><input id="prenom" name="prenom" type="text" placeholder="Votre prénom" required></div>
+              <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" placeholder="Votre nom" required></div>
+              <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="vous@email.fr" required></div>
+              <div class="field"><label for="tel">Téléphone <small>· pour être rappelé plus vite</small></label><input id="tel" name="tel" type="tel" placeholder="06 00 00 00 00"></div>
+              <div class="field full"><label for="msg">Message <small>· facultatif</small></label><textarea id="msg" name="msg" placeholder="Votre projet, vos questions…"></textarea></div>
+              <label class="consent"><input type="checkbox" name="consent" required>J'accepte d'être recontacté(e) par l'équipe commerciale au sujet de la résidence MAISTÀ.</label>
+              <button class="submit" type="submit">Recevoir la grille de prix <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
+              <div class="reassure"><span><i data-lucide="clock"></i>Réponse sous 24 h</span><span><i data-lucide="shield-check"></i>Sans engagement</span><span><i data-lucide="lock"></i>Données confidentielles</span></div>
+            </div>
+          </div>
+
           <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-          <button class="submit" type="submit">Envoyer ma demande <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
           <div class="form-done">
             <div class="t m-numeral">Merci.</div>
-            <p>Votre demande a bien été enregistrée. L'équipe commerciale MAISTÀ vous recontactera dans les meilleurs délais.</p>
+            <p>Votre demande a bien été enregistrée. La grille de prix vous sera adressée dans les meilleurs délais.</p>
           </div>
           <div class="form-error" role="alert">
             <div class="t">Oups.</div>
@@ -660,6 +815,30 @@
   </div>
 </footer>
 
+<!-- ============ LIGHTBOX GALERIE ============ -->
+<div class="lb" id="lightbox" hidden>
+  <button class="lb__close" aria-label="Fermer"><i data-lucide="x"></i></button>
+  <button class="lb__prev" aria-label="Image précédente"><i data-lucide="chevron-left"></i></button>
+  <img src="" alt="">
+  <button class="lb__next" aria-label="Image suivante"><i data-lucide="chevron-right"></i></button>
+  <div class="lb__cap"></div>
+</div>
+
+<!-- ============ EXIT INTENT ============ -->
+<div class="exit" id="exitPanel" role="dialog" aria-modal="true" aria-label="Recevez la grille des prix" hidden>
+  <div class="exit__card">
+    <button class="exit__close" id="exitClose" aria-label="Fermer"><i data-lucide="x"></i></button>
+    <div class="m-eyebrow" style="color:var(--maista-gold)">Avant de partir</div>
+    <div class="exit__title">Recevez la <em>grille des prix</em> des 30 appartements</div>
+    <p class="exit__p">Laissez votre email — l'équipe commerciale vous adresse la grille détaillée et les disponibilités à jour.</p>
+    <form class="exit__row" id="exitForm">
+      <input type="email" id="exitEmail" placeholder="vous@email.fr" required aria-label="Votre email">
+      <button type="submit">Recevoir</button>
+    </form>
+    <div class="exit__note" id="exitNote">En cliquant sur « Recevoir », vous acceptez d'être recontacté(e) par l'équipe commerciale au sujet de la résidence MAISTÀ.</div>
+  </div>
+</div>
+
 <script>
   // Sticky nav state
   (function(){
@@ -686,18 +865,39 @@
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('is-open')) close(); });
   })();
 
-  // CTA typologies — présélectionne la typologie dans le formulaire
+  // Micro-conversions — signaux d'optimisation pour Google Ads
+  function track(name){ if (typeof gtag === 'function') gtag('event', name); }
+
+  // Formulaire 2 étapes + préselection typologie
   (function(){
-    var sel = document.getElementById('typo');
-    if (!sel) return;
-    document.querySelectorAll('[data-typo]').forEach(function(a){
-      a.addEventListener('click', function(){
-        var v = a.getAttribute('data-typo');
-        for (var i = 0; i < sel.options.length; i++){
-          if (sel.options[i].text === v){ sel.selectedIndex = i; break; }
-        }
+    var typo = document.getElementById('typo');
+    var s1 = document.getElementById('fstep1'), s2 = document.getElementById('fstep2');
+    if (!typo || !s1 || !s2) return;
+    function choose(v){
+      typo.value = v;
+      document.querySelectorAll('.typochoice button').forEach(function(b){
+        b.classList.toggle('is-sel', b.getAttribute('data-choice') === v);
       });
+      s1.classList.remove('is-on'); s2.classList.add('is-on');
+      track('formulaire_etape1');
+    }
+    document.querySelectorAll('.typochoice button').forEach(function(b){
+      b.addEventListener('click', function(){ choose(b.getAttribute('data-choice')); });
     });
+    document.getElementById('fback').addEventListener('click', function(){
+      s2.classList.remove('is-on'); s1.classList.add('is-on');
+    });
+    // CTA des cartes typologies → choix appliqué + passage direct à l'étape 2
+    document.querySelectorAll('[data-typo]').forEach(function(a){
+      a.addEventListener('click', function(){ choose(a.getAttribute('data-typo')); });
+    });
+  })();
+
+  // Clics téléphone / plaquette / WhatsApp
+  (function(){
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(a){ a.addEventListener('click', function(){ track('clic_telephone'); }); });
+    document.querySelectorAll('a[download]').forEach(function(a){ a.addEventListener('click', function(){ track('telechargement_plaquette'); }); });
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){ a.addEventListener('click', function(){ track('clic_whatsapp'); }); });
   })();
 
   // Masquer le bouton flottant quand la section Contact est à l'écran
@@ -747,6 +947,7 @@
   (function(){
     // 1) Colle ici l'URL de déploiement du Web App Apps Script (…/exec)
     var LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxRvEep2kNNXJWs9k7C8TuNmmog6ZMcbNaTjYaMGdM9BDNKBr9etk91VnPUSPdye3c/exec';
+    window.MAISTA_LEAD = LEAD_ENDPOINT; // partagé avec le panneau grille de prix (exit)
 
     var f = document.getElementById('leadForm');
     if (!f) return;
@@ -784,6 +985,86 @@
     function trackConversion(){
       if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18308898565/x7ChCMzfhs0cEIW-rppE'});
     }
+  })();
+
+  // Lightbox galerie
+  (function(){
+    var lb = document.getElementById('lightbox');
+    if (!lb) return;
+    var img = lb.querySelector('img'), cap = lb.querySelector('.lb__cap');
+    var figs = Array.prototype.slice.call(document.querySelectorAll('.gal__grid figure'));
+    var idx = 0;
+    function show(i){
+      idx = (i + figs.length) % figs.length;
+      var f = figs[idx], fi = f.querySelector('img'), fc = f.querySelector('figcaption');
+      img.src = fi.currentSrc || fi.src; img.alt = fi.alt || '';
+      cap.textContent = fc ? fc.textContent : '';
+    }
+    function open(i){ show(i); lb.hidden = false; requestAnimationFrame(function(){ lb.classList.add('is-open'); }); document.body.style.overflow = 'hidden'; track('galerie_zoom'); }
+    function close(){ lb.classList.remove('is-open'); document.body.style.overflow = ''; setTimeout(function(){ lb.hidden = true; }, 300); }
+    figs.forEach(function(f, i){ f.addEventListener('click', function(){ open(i); }); });
+    lb.querySelector('.lb__close').addEventListener('click', close);
+    lb.querySelector('.lb__prev').addEventListener('click', function(e){ e.stopPropagation(); show(idx - 1); });
+    lb.querySelector('.lb__next').addEventListener('click', function(e){ e.stopPropagation(); show(idx + 1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+    document.addEventListener('keydown', function(e){
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  })();
+
+  // Exit intent — desktop uniquement, une fois par session
+  (function(){
+    var panel = document.getElementById('exitPanel');
+    if (!panel) return;
+    var form = document.getElementById('exitForm'), note = document.getElementById('exitNote');
+    function eligible(){
+      var lead = document.getElementById('leadForm');
+      var ok = true;
+      try { ok = !sessionStorage.getItem('maistaExit'); } catch(e){}
+      return ok && window.matchMedia('(pointer:fine)').matches && window.innerWidth > 1040
+        && !(lead && lead.classList.contains('sent'));
+    }
+    function open(){
+      try { sessionStorage.setItem('maistaExit','1'); } catch(e){}
+      panel.hidden = false; requestAnimationFrame(function(){ panel.classList.add('is-open'); });
+      track('exit_popup_affiche');
+    }
+    function close(){ panel.classList.remove('is-open'); setTimeout(function(){ panel.hidden = true; }, 300); }
+    document.addEventListener('mouseout', function(e){
+      if (!e.relatedTarget && e.clientY <= 0 && panel.hidden && eligible()) open();
+    });
+    document.getElementById('exitClose').addEventListener('click', close);
+    panel.addEventListener('click', function(e){ if (e.target === panel) close(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !panel.hidden) close(); });
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var email = document.getElementById('exitEmail').value.trim();
+      if (!email || !window.MAISTA_LEAD) return;
+      var btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Envoi…';
+      var body = new URLSearchParams();
+      body.set('email', email);
+      body.set('msg', 'Demande de grille de prix (fenêtre avant sortie)');
+      body.set('consent', 'on');
+      body.set('page', location.href + ' (exit)');
+      fetch(window.MAISTA_LEAD, { method:'POST', body: body })
+        .then(function(r){
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          if (typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18308898565/x7ChCMzfhs0cEIW-rppE'});
+          track('exit_lead');
+          panel.querySelector('.exit__card').innerHTML =
+            '<div class="m-eyebrow" style="color:var(--maista-gold)">Merci</div>' +
+            '<div class="exit__title">La grille de prix vous sera <em>envoyée par email</em>.</div>' +
+            '<p class="exit__p">L\'équipe commerciale MAISTÀ revient vers vous dans les meilleurs délais.</p>';
+          setTimeout(close, 3200);
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = 'Recevoir';
+          note.textContent = "L'envoi n'a pas abouti — réessayez ou écrivez à contact@aloe-immo.fr.";
+        });
+    });
   })();
 
   // Icons (Lucide chargé en defer → init après le parsing)
