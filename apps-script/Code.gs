@@ -15,7 +15,7 @@ var SHEET_NAME   = 'Leads';                  // onglet du Google Sheet
 var PROGRAMME    = 'MAISTA';                 // référence programme pour le CRM Aloé
 
 // --- CRM Aloé (crm.aloe-immo.fr) — programme « Résidence MAISTÀ » ---
-var CRM_WEBHOOK       = 'https://crm.aloe-immo.fr/api/webhooks/wix/maista-porticcio';
+var CRM_WEBHOOK       = 'https://crm.aloe-immo.fr/api/webhooks/site/maista-porticcio';
 var CRM_WEBHOOK_TOKEN = '50f2d695e08d581df8e42625f0ad6bceb4fe015282a08262';
 // Option email-to-lead, non utilisée :
 var CRM_EMAIL = '';
